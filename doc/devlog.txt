@@ -1,0 +1,287 @@
+DEVLOG for Team SOS
+
+chanM -- 2019-10-17 21:32
+Set up GitHub repository and created DEVLOG
+
+chanM -- 2019-10-17 21:52
+Worked on design document: component map, database layout diagram, and role assignment
+
+chanM -- 2019-10-18 9:21
+Collaborated on design document: site map, deadlines
+
+chanM -- 2019-10-21 24:14
+Uploaded first finished version of design document
+
+chanM -- 2019-10-22 01:28
+Revised design document:
+ - clarified roles
+ - specified details of individual files and routes
+ - streamlined database design
+ - updated diagrams to match database changes
+
+chanM -- 2019-10-22 01:56
+SQLite Operations: (clauses of the SELECT statement)
+    JOIN       - associates column data between tables in certain ways
+               - would be useful to correlate Usernames or Titles in different ways
+
+    INNER-JOIN - combines columns from correlated tables
+               - can be used to combine common Username/Author columns to see what contributions have been made
+
+    LEFT-JOIN  - includes all rows of one table and rows of another (if they exist, NULL if not)
+               - could use it for seeing contributions again in case users haven't made any contributions
+
+    CROSS-JOIN - combines every row from two tables (like matrix multiplication?)
+               - no current forseen use with our current design
+
+chanM -- 2019-10-22 02:12
+From reading "Programming Sucks":
+ - Review each others' code and make sure no mistakes snowball into bigger ones
+ - Ask questions when in need of help
+ - COMMENTS
+ - Make reasonable deadlines so people can write 'good code' without shortcuts
+
+sontagC -- 2019-10-23 9:16
+Edited design.pdf to reflect improved database structure. Also fixed the site map
+
+chanM -- 2019-10-22 11:16
+Created simple starting app.py
+Added /test route to test HTML frontend
+
+friedH -- 2019-10-23 21:26
+added initialfile.py as a temporary location to store SQL function headers
+Some progress made on SQLite stuff in general
+
+friedH -- 2019-10-23 21:26
+pushed progress with initialfile.py which adds functionality to about half of the functions within the file
+
+sontagC -- 2019-10-24 9:28
+Began writing routes in app.py, specifically login and associated authentication
+
+wuJ -- 2019-10-24 9:34
+Began on base.html, login.html and welcome.html.
+Able to login but not direct to another page yet
+
+friedH -- 2019-10-24 9:35
+moved initialfil.py to utl and renamed to db.py
+added more functions to db.py, majority of work done
+
+chanM -- 2019-10-24 10:16
+Changed secret key to randomly generated string
+Temporarily disabled specific flashing error messages
+Removed temporary /test route
+
+chanM -- 2019-10-24 16:29
+Made form to route to new /login/auth route
+Changed route methods to POST
+Added flashing into login.html
+BUGS:
+ - need to fix database interacting library to pass the cursor from app.py
+ - need to add test user to be able to test /login in database
+
+friedH -- 2019-10-24 22:06
+finished all necessary functions in db library,
+need to have them properly tested and checked.
+Likely to occur tomorrow.
+
+wuJ -- 2019-10-24 23:17
+added html files for register and and home page.
+need to test it with the backend code tomorrow.
+
+chanM -- 2019-10-24 23:37
+Fixed commmenting consistencies in db.py library
+Revamped db.py functions to take a cursor as first parameter
+Added test account in user table in order to test login functionality:
+ - Username: "test"
+ - Password: "123"
+Got logging in functionality working using test account
+Removed unecessary code comments in db.py
+BUGFIXES:
+ - "need to fix database interacting library to pass the cursor from app.py" -- from 2019-10-24 16:29
+ - "need to add test user to be able to test /login in database" -- from 2019-10-24 16:29
+
+chanM -- 2019-10-25 01:44
+Added \home route and linked to home.html
+Finished creating updateDevlog.py script
+
+sontagC -- 2019-10-25 08:51
+Fixed accurate error flashing for login
+
+wuJ -- 2019-10-25 9:07
+added character limit parameter.
+changed parameters on html.
+
+friedH -- 2019-10-25 09:06
+fixed faulty logic in the database package we made
+
+chanM -- 2019-10-25 10:01
+Added information on How To Run in the README.md
+
+sontagC -- 2019-10-25 10:27
+Added host=0.0.0.0 on the run command so app viewable by IP address
+
+sontagC -- 2019-10-26 20:10
+Added all the rendering routes (login, register, etc) to the app
+Also made flask app run on default port (only applies for accessing through IP instead of localhost, I don't need to do IP:port anymore just IP)
+
+sontagC -- 2019-10-26 20:29
+Added authenticate/register route
+
+sontagC -- 2019-10-26 20:46
+Changed naming scheme to register/authenticate etc
+
+sontagC -- 2019-10-26 20:55
+I broke code by naming two functions authenticateLogin, fixed bug. 
+
+sontagC -- 2019-10-26 21:18
+Added back host=0.0.0.0
+To visit the flask app, find your local ip, then go to <ip>:5000 in a browser
+
+wuJ -- 2019-10-26 21:31
+I tampered with the app.run() but it was fixed by Coby.
+added and updated all Html pages with updated form actions.
+
+wuJ -- 2019-10-26 22:00 
+I added the remaining html file templates.
+added names for input fields.
+
+sontagC -- 2019-10-26 22:10
+Updated site map
+Wrote create/authenticate routes
+
+friedH -- 2019-10-26 22:20
+fixed more faulty db logic
+
+sontagC -- 2019-10-26 22:24
+Fixed form action in create to go to create/authenticate
+
+chanM -- 2019-10-26 22:34
+Fixed sqlite error with registering stemming from errors within database functions
+
+friedH -- 2019-10-26 22:51
+fix naming discrepancy in library
+
+sontagC -- 2019-10-26 22:54
+Added user variable when rendering templates so site can say welcome <user>
+
+sontagC -- 2019-10-26 23:18
+Fixed how stories are linked from browse. Fixed lots of naming bugs, and added a logged in check before calling session[username] in browse
+
+friedH -- 2019-10-26 23:39
+fixed string formatting errors again
+
+
+friedH -- 2019-10-26 23:43
+fix typo
+
+sontagC -- 2019-10-26 23:43
+Added flashing messages to home.html to avoid bugs where they'd appear in a different place
+Also checked for username(and if not redirect to login) everywhere I try to grab username
+Also passed title to /contribute
+Updated design doc
+Creat (a new story) on home -> "create"
+List of titles has a header
+
+chanM -- 2019-10-27 00:34
+Fixed Jinja rendering of buttons when browsing stories
+Changed database getContributedStories to return a list instead of a set
+
+sontagC -- 2019-10-27 00:40
+Changed contribute method to GET
+
+chanM -- 2019-10-27 00:51
+Fixed display of title concerning use of Jinja Blocks
+
+chanM -- 2019-10-27 01:01
+Tried to fix sqlite error with UNIQUE constraint
+ERROR (still exists): UNIQUE constraint blocks multiple story entries under same title
+
+
+sontagC -- 2019-10-27 16:26
+Added formatting for titles in contribute.html
+Better debug command for contribute, create inserted into db.addEntry
+
+friedH -- 2019-10-27 16:25
+possibly fixed new problem with the additive functions
+
+sontagC -- 2019-10-27 16:52
+Got rid of Titles being primary key (caused bug in new implementation
+FAKE NEW (I didn't yet): Reinitialized db tables each time
+Added default entry by user test
+Added connector.commit() when adding data
+
+friedH -- 2019-10-27 20:07
+remove returning sets for returning lists instead
+
+friedH -- 2019-10-27 20:16
+added first iteration of lastEntry function
+
+sontagC -- 2019-10-27 20:17
+Pass imaginary Jinja variable "latest" to contribute.html, using imaginary method db.lastEntry() (They haven't been coded yet)
+Added debugging for contribute page
+
+friedH -- 2019-10-27 20:33
+fix typo in app.py
+
+wuJ -- 2019-10-26 20:59
+fixed buttons not printing full titles.
+added loop to print out stories on home page.
+
+sontagC -- 2019-10-27 21:01
+Fixed bug by adding quotes around {{title}} in contribute.html
+
+friedH -- 2019-10-27 21:28
+added troubleshooting prints in db.py
+
+friedH -- 2019-10-27 21:47
+fixed indexing error in db.py
+
+wuJ -- 2019-10-27 21:49
+added helper function getTitlesAndStories() in bd.py
+also added a variable in app.py to pass that list into the Html.
+
+friedH -- 2019-10-27 22:45
+adding matthew's suggested change for getotherstories function
+
+friedH -- 2019-10-27 22:50
+Hell yeah Matt's suggestion worked!
+
+chanM -- 2019-10-27 24:13
+Removed alternate hosting from <ip>:5000
+Fixed tabbing issues
+Updated comments and deleted unecessary ones
+Added visible site name, team, and roster
+Changed footers of pages
+Added pageTitle block to display each page's title
+Changed Home Page story viewing:
+ - Changed getTitlesAndStories function in db.py to return a dictionary of titles to stories
+ - Changed home function in app.py to format and make dictionary data presentable
+Centered page elements for aesthetics
+
+chanM -- 2019-10-27 24:41
+Added checks for empty password or username when registering a new account
+Added accounts and stories to showcase functionality: (username, password)
+ - test, 123
+ - Matthew, 123
+ - Coby, 123
+ - Jionghao, 123
+
+chanM -- 2019-10-27 24:53
+Design doc changes:
+ - removed UNIQUE identifier from stories table, Title column
+ - removed unused flash messages
+ - updated Component/Page Description to match current layout and procedures
+   - specified buttons for browsing and GET method used for corresponding /contribute page
+
+chanM -- 2019-10-27 24:55
+Corrected error in roles in README.md
+
+friedH -- 2019-10-28 08:55
+fixed comments in db.py
+
+chanM -- 2019-10-28 09:53
+Fixed sanitization of inputs into sqlite databases using tuples
+Now allows ' and " in stories
+
+chanM -- 2019-10-28 10:16
+Made error when trying to submit an empty story title
+Fixed small spacing between flashed messages on home page

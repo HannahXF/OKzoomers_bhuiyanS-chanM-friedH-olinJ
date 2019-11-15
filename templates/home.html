@@ -1,0 +1,60 @@
+<!--
+    Matthew Chan (PM), Hannah Fried, Coby Sontag, Jionghao Wu [Team SOS]
+    SoftDev1 pd2
+    P00 -- Da Art of Storytellin'
+    2019-10-28
+-->
+<!-- Home Page utilizing base.html Jinja blocks: displays stories contributed to -->
+
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block pageTitle %}
+    Home Page/Story Viewer
+{% endblock %}
+
+{% block content %}
+<H2>
+    Welcome <b>{{user}}</b>!
+</H2>
+
+{% set msgs = get_flashed_messages() %}
+{% for msg in msgs %}
+<i>
+    {{ msg }}
+</i>
+{% endfor %}
+<br><br>
+
+<form action="/login", method = "GET">
+	<input type="submit" name="sub1" value="Logout" > <br>
+</form>
+<br>
+<form action="/create", method = "GET">
+	<input type="submit" name="sub2" value="Create a New Story" > <br>
+</form>
+<br>
+<form action="/browse", method = "GET">
+	<input type="submit" name="sub3" value="Browse Stories" > <br>
+</form>
+<br><br><br>
+
+<H2>
+    Stories You Have Contributed To:
+</H2>
+<hr>
+
+{% for title, story in stories.items() %}
+<H3>
+    {{title}}
+</H3>
+<p>
+    {{story}}
+</p>
+<hr>
+{% endfor %}
+
+{% endblock %}

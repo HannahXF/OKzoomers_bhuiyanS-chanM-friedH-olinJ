@@ -1,0 +1,41 @@
+<!--
+    Matthew Chan (PM), Hannah Fried, Coby Sontag, Jionghao Wu [Team SOS]
+    SoftDev1 pd2
+    P00 -- Da Art of Storytellin'
+    2019-10-28
+-->
+<!-- Register Page utilizing base.html Jinja blocks -->
+
+{% extends "base.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block pageTitle %}
+    Register a New Account
+{% endblock %}
+
+{% block content %}
+<H3>
+{% set msgs = get_flashed_messages() %}
+{% for msg in msgs %}
+<i>
+    Error: {{ msg }}
+</i>
+{% endfor %}
+</H3>
+
+<form action = "/register/authenticate", method = "POST">
+    Enter a username:
+    <input type = "text" name = "username" maxlength="12"> <br>
+    Enter a password:
+    <input type = "text" name = "password" maxlength="12"> <br>
+    <input type = "submit" name = "sub1" value = "Register">
+</form>
+<br>
+<form action="/login", method = "GET">
+	<input type="submit" name="sub2" value="Cancel" >
+</form>
+
+{% endblock %}

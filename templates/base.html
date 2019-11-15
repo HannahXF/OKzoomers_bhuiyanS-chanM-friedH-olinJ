@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+
+<!--
+    Matthew Chan (PM), Hannah Fried, Coby Sontag, Jionghao Wu [Team SOS]
+    SoftDev1 pd2
+    P00 -- Da Art of Storytellin'
+    2019-10-28
+-->
+<!-- A basic html template with Jinja blocks -->
+
+
+<html>
+    <head>
+        {% block header %}
+            <title>
+                Smallpox Stories :: {% block title %}Title{% endblock %}
+            </title>
+        {% endblock %}
+    </head>
+
+    <body>
+        <center>
+            <H1><strong>
+                Smallpox Stories <small><i>-- Pass it Around!™</i></small>
+            </H1></strong>
+            <H2>
+                By Team SOS: Matthew Chan, Hannah Fried, Coby Sontag, Jionghao Wu
+            </H2>
+            <hr>
+            <br>
+            
+            <H1>
+                {% block pageTitle %}
+                Page Title
+                {% endblock %}
+            </H1>
+
+            {% block content %}
+            Content
+            {% endblock %}
+
+            <footer>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                {% block footer %}
+                COPYRIGHT &copy; 2019 Smallpox Stories<br>
+                DISCLAIMER: For Project #00 of Software Development Class
+                {% endblock %}
+            </footer>
+        </center>
+    </body>
+</html>
