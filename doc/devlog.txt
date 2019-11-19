@@ -1,1 +1,10 @@
 DEVLOG for Team OKzoomers
+
+roles:
+Hannah - PM
+Jacob - Backend
+Matthew - DB
+Saad - frontend
+
+friedH -- 2019-11-19 08:51
+added tentative final update for design doc and devlog setup
