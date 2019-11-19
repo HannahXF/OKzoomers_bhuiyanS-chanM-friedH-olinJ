@@ -4,7 +4,7 @@ roles:
 Hannah - PM
 Jacob - Backend
 Matthew - DB
-Saad - frontend
+Saad - Frontend
 
 friedH -- 2019-11-19 08:51
 added tentative final update for design doc and devlog setup
