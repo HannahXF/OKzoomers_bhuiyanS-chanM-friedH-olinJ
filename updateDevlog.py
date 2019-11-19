@@ -1,7 +1,7 @@
-# Matthew Chan (PM), Hannah Fried, Coby Sontag, Jionghao Wu [Team SOS]
+# Saad Bhuiyan, Matthew Chan, Hannah Fried, Jacob Olin [Team OKzoomers]
 # SoftDev1 pd2
-# P00 -- Da Art of Storytellin'
-# 2019-10-28
+# P01 -- ArRESTed Development
+# 2019-11-19
 
 import datetime # used to get the current date and time
 
@@ -18,8 +18,8 @@ f = open('doc/devlog.txt', 'a')
 
 # takes in name of user submitting the entry
 fullName = input('Input your full name: ')
-# formats the name correcty assumeing a format of "first last"
-formattedName = fullName.split(' ')[1].lower() + fullName.split(' ')[0][0].capitalize()
+# formats the name correcty assumeing a format of "first last" into "firstL"
+formattedName = fullName.split(' ')[0].lower() + fullName.split(' ')[1][0].capitalize()
 
 # takes in the entry using \n as newlines
 entry = input('Input your devlog entry (use \\n for new lines):\n')

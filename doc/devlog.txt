@@ -8,3 +8,7 @@ Saad - Frontend
 
 friedH -- 2019-11-19 08:51
 added tentative final update for design doc and devlog setup
+
+
+matthewC -- 2019-11-19 09:07
+Finished updateDevlog.py script to facilitate devlog updating
