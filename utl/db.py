@@ -34,7 +34,7 @@ def init():
     db.execute('''
                 CREATE TABLE IF NOT EXISTS cards(
                     player_id INTEGER, 
-                    user_id TEXT,
+                    user_id INTEGER,
                     rarity INTEGER
                );''')
     # initializing the cache table
