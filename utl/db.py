@@ -11,7 +11,11 @@ _DB_FILE = '../sportsball.db'
 #===========================================================
 # HELPER FUNCTIONS (private)
 
-def 
+def _test():
+    try:
+        db = sqlite3.connect(_DB_FILE)
+    except sqlite3.Error as error:
+        print(error)
 
 #===========================================================
 
@@ -29,7 +33,7 @@ def init():
     # stores all cards that exist
     db.execute('''
                 CREATE TABLE IF NOT EXISTS cards(
-                    player_id INTEGER PRIMARY KEY, 
+                    player_id INTEGER, 
                     user_id TEXT,
                     rarity INTEGER
                );''')
@@ -42,9 +46,3 @@ def init():
                     picture_link TEXT
                );''')
     db.commit()
-
-def _test():
-    try:
-        db = sqlite3.connect(_DB_FILE)
-    except sqlite3.Error as error:
-        print(error)
