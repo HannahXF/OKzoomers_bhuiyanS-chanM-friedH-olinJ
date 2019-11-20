@@ -1,4 +1,50 @@
-# Saad Bhuiyan, Matthew Chan, Hannah Fried, Jacob Olin [Team OKzoomers]
+# Team OKzoomers -- Saad Bhuiyan, Matthew Chan, Hannah Fried, Jacob Olin
 # SoftDev1 pd2
 # P01 -- ArRESTed Development
 # 2019-11-19
+
+# importing the sqlite3 module to interface with sqlite databases
+import sqlite3
+
+_DB_FILE = '../sportsball.db'
+
+#===========================================================
+# HELPER FUNCTIONS (private)
+
+def 
+
+#===========================================================
+
+def init():
+    db = sqlite3.connect(_DB_FILE)
+    # initializing the users table
+    # stores user login data
+    db.execute('''
+                CREATE TABLE IF NOT EXISTS users(
+                    user_id INTEGER UNIQUE PRIMARY KEY, 
+                    username TEXT UNIQUE, 
+                    password TEXT
+               );''')
+    # initializing the cards table
+    # stores all cards that exist
+    db.execute('''
+                CREATE TABLE IF NOT EXISTS cards(
+                    player_id INTEGER PRIMARY KEY, 
+                    user_id TEXT,
+                    rarity INTEGER
+               );''')
+    # initializing the cache table
+    # stores data accessed from APIs to optimize quota usage
+    db.execute('''
+                CREATE TABLE IF NOT EXISTS cache(
+                    player_id INTEGER UNIQUE PRIMARY KEY, 
+                    data TEXT, 
+                    picture_link TEXT
+               );''')
+    db.commit()
+
+def _test():
+    try:
+        db = sqlite3.connect(_DB_FILE)
+    except sqlite3.Error as error:
+        print(error)
