@@ -22,3 +22,6 @@ Worked on init() database function in /utl/db.py to set up correct tables in the
 
 matthewC -- 2019-11-19 22:26
 Updated devlog database layout and finished/polished the site map
+
+jacobO -- 2019-11-20 9:02
+Created and added requirements.txt to the repo.
