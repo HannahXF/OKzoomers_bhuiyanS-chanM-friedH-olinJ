@@ -15,3 +15,7 @@ Finished updateDevlog.py script to facilitate devlog updating
 
 matthewC -- 2019-11-19 09:10
 Cleared previously populated code in utl/db.py
+
+matthewC -- 2019-11-19 21:47
+Fixed naming of __init__.py in /utl
+Worked on init() database function in /utl/db.py to set up correct tables in the database file
