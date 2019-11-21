@@ -28,3 +28,8 @@ Created and added requirements.txt to the repo.
 
 saadB -- 2019-11-20 20:45
 Remove unnecessary HTML files. Update headers. Update base. Create login and register very basic no bootstrap.
+
+matthewC -- 2019-11-21 9:14
+In response to egoless programming article:
+ - Periodically take time to review each other's code
+ - Write code oriented to be looked at by others
