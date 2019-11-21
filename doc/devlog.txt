@@ -40,3 +40,6 @@ Routes added:
  - "/" (very rudimentary)
  - "/login" (renders login.html)
  - "/register" (renders register.html)
+
+matthewC -- 2019-11-21 10:00
+Added @_connects for database functions to generalize connection to the database without having to pass cursor in backend usage
