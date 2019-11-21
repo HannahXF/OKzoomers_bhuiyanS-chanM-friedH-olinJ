@@ -17,10 +17,19 @@ def _test():
     except sqlite3.Error as error:
         print(error)
 
+def _connects(db_func):
+    def establish_connection(*args, **kwargs):
+        try:
+            db = sqlite3.connect(_DB_FILE)
+            return db_func(db = db, *args, **kwargs)
+        except sqlite3.Error as error:
+            print(error)
+    return establish_connection
+
 #===========================================================
 
-def init():
-    db = sqlite3.connect(_DB_FILE)
+@_connects
+def init(db=None):
     # initializing the users table
     # stores user login data
     db.execute('''
