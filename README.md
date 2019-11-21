@@ -30,7 +30,7 @@ Sportsball cards is a platform for:
 
 **Nitty-Gritty**
 
-Data retrieved from: [OpenTrivia API](https://opentdb.com/api_config.php), [balldontlie API](https://www.balldontlie.io/#getting-started ), and the [Image results API](https://serpapi.com/images-results ).
+Data retrieved from: [OpenTrivia API](https://opentdb.com/api_config.php), [balldontlie API](https://docs.google.com/document/d/1zaKf7H-yUcP3lcyAzFsDjLqgZVdpKYNGoZqIcsZoFV0/edit), and the [Image results API](https://serpapi.com/images-results ).
 
 THis website should be able to offer users the ability to create accounts and then play trivia games for basketball. The games are run through the trivia API providing things like verification for correct/incorrect answers. The user should be able to win virtual trading cards based on their trivia success, for which the images on the cards come from our images API and the stats come from the basketball API.
 
