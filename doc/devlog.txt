@@ -33,3 +33,10 @@ matthewC -- 2019-11-21 9:14
 In response to egoless programming article:
  - Periodically take time to review each other's code
  - Write code oriented to be looked at by others
+
+matthewC -- 2019-11-21 09:23
+Created basic app.py to start testing frontend html pages
+Routes added:
+ - "/" (very rudimentary)
+ - "/login" (renders login.html)
+ - "/register" (renders register.html)
