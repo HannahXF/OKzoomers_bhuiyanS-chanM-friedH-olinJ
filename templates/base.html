@@ -1,51 +1,43 @@
 <!DOCTYPE HTML>
 
 <!--
-    Matthew Chan (PM), Hannah Fried, Coby Sontag, Jionghao Wu [Team SOS]
+    Team OKzoomers
+    Saad Bhuiyan, Matthew Chan, Hannah Fried (PM), Jacob Olin
     SoftDev1 pd2
-    P00 -- Da Art of Storytellin'
-    2019-10-28
+    P01 -- ArRESTed Development
+    2019-11-18
 -->
-<!-- A basic html template with Jinja blocks -->
 
+<!-- Base for P01 HTML files -->
 
-<html>
+<html lang="en">
     <head>
+        
+        <meta charset="utf-8">
+        <!-- Responsive viewport for all devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	 <!-- Bootstrap CDN, jQuery Library, Popper JS, and Javascript -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        
         {% block header %}
             <title>
-                Smallpox Stories :: {% block title %}Title{% endblock %}
+                WHATGOESHERE - {% block title %}Title{% endblock %}
             </title>
         {% endblock %}
+    
     </head>
-
     <body>
-        <center>
-            <H1><strong>
-                Smallpox Stories <small><i>-- Pass it Around!™</i></small>
-            </H1></strong>
-            <H2>
-                By Team SOS: Matthew Chan, Hannah Fried, Coby Sontag, Jionghao Wu
-            </H2>
-            <hr>
-            <br>
-            
-            <H1>
-                {% block pageTitle %}
-                Page Title
-                {% endblock %}
-            </H1>
 
-            {% block content %}
+        {% block content %}
             Content
-            {% endblock %}
+        {% endblock %}
 
-            <footer>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                {% block footer %}
-                COPYRIGHT &copy; 2019 Smallpox Stories<br>
-                DISCLAIMER: For Project #00 of Software Development Class
-                {% endblock %}
-            </footer>
-        </center>
+        <footer>
+            footer necessary?
+        </footer>
+
     </body>
 </html>

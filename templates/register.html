@@ -1,41 +1,31 @@
 <!--
-    Matthew Chan (PM), Hannah Fried, Coby Sontag, Jionghao Wu [Team SOS]
+    Team OKzoomers
+    Saad Bhuiyan, Matthew Chan, Hannah Fried (PM), Jacob Olin
     SoftDev1 pd2
-    P00 -- Da Art of Storytellin'
-    2019-10-28
+    P01 -- ArRESTed Development
+    2019-11-18
 -->
-<!-- Register Page utilizing base.html Jinja blocks -->
+
+<!-- Register page -->
 
 {% extends "base.html" %}
 
 {% block title %}
-Register
-{% endblock %}
-
-{% block pageTitle %}
-    Register a New Account
+    Register
 {% endblock %}
 
 {% block content %}
-<H3>
-{% set msgs = get_flashed_messages() %}
-{% for msg in msgs %}
-<i>
-    Error: {{ msg }}
-</i>
-{% endfor %}
-</H3>
-
-<form action = "/register/authenticate", method = "POST">
-    Enter a username:
-    <input type = "text" name = "username" maxlength="12"> <br>
-    Enter a password:
-    <input type = "text" name = "password" maxlength="12"> <br>
-    <input type = "submit" name = "sub1" value = "Register">
-</form>
-<br>
-<form action="/login", method = "GET">
-	<input type="submit" name="sub2" value="Cancel" >
-</form>
-
+    <form action = "/register/authenticate", method = "POST">
+        Username:
+        <input type="text" name="username"> <br>
+        Password:
+        <input type="text" name="password"> <br>
+        Repeat Password:
+        <input type="text" name="repeat password"> <br>
+        <input type="submit" name="submit" value="Register"> <br>
+    </form>
+    <br>
+    <form action="/login", method = "GET">
+        <input type="submit" name="submit" value="Cancel" >
+    </form>
 {% endblock %}

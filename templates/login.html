@@ -1,41 +1,29 @@
 <!--
-    Matthew Chan (PM), Hannah Fried, Coby Sontag, Jionghao Wu [Team SOS]
+    Team OKzoomers
+    Saad Bhuiyan, Matthew Chan, Hannah Fried (PM), Jacob Olin
     SoftDev1 pd2
-    P00 -- Da Art of Storytellin'
-    2019-10-28
+    P01 -- ArRESTed Development
+    2019-11-18
 -->
-<!-- Login Page utilizing base.html Jinja blocks -->
+
+<!-- Login page -->
 
 {% extends "base.html" %}
 
 {% block title %}
-Login
-{% endblock %}
-
-{% block pageTitle %}
     Login
 {% endblock %}
 
 {% block content %}
-<H3>
-{% set msgs = get_flashed_messages() %}
-{% for msg in msgs %}
-<i>
-    Error: {{ msg }}
-</i>
-{% endfor %}
-</H3>
-
-<form action = "/login/authenticate", method = "POST">
-    Enter your username:
-    <input type = "text" name = "username"> <br>
-    Enter your password:
-    <input type = "text" name = "password"> <br>
-    <input type = "submit" name = "sub" value = "Login"> <br>
-</form>
-<br>
-<form action = "/register", method = "GET">
-	<input type = "submit" name = "sub1" value = "Register A New Account">
-</form>
-
+    <form action="/login/authenticate", method="POST">
+        Username:
+        <input type="text" name="username"> <br>
+        Password:
+        <input type="text" name="password"> <br>
+        <input type="submit" name="submit" value="Login"> <br>
+    </form>
+    <br>
+    <form action = "/register", method = "GET">
+        <input type = "submit" name = "submit" value = "Register">
+    </form>
 {% endblock %}

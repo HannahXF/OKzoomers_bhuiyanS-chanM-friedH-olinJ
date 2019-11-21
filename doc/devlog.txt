@@ -25,3 +25,6 @@ Updated devlog database layout and finished/polished the site map
 
 jacobO -- 2019-11-20 9:02
 Created and added requirements.txt to the repo.
+
+saadB -- 2019-11-20 20:45
+Remove unnecessary HTML files. Update headers. Update base. Create login and register very basic no bootstrap.
