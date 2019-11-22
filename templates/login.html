@@ -1,6 +1,5 @@
 <!--
-    Team OKzoomers
-    Saad Bhuiyan, Matthew Chan, Hannah Fried (PM), Jacob Olin
+    Team OKzoomers -- Saad Bhuiyan, Matthew Chan, Hannah Fried (PM), Jacob Olin
     SoftDev1 pd2
     P01 -- ArRESTed Development
     2019-11-18
@@ -15,15 +14,19 @@
 {% endblock %}
 
 {% block content %}
-    <form action="/login/authenticate", method="POST">
-        Username:
-        <input type="text" name="username"> <br>
-        Password:
-        <input type="text" name="password"> <br>
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endwith %}
+    <form action="/login">
+        Username: <input type="text" name="username"> <br>
+        Password: <input type="text" name="password"> <br>
         <input type="submit" name="submit" value="Login"> <br>
     </form>
     <br>
+    Don't have an account? Click here to register.
     <form action = "/register", method = "GET">
-        <input type = "submit" name = "submit" value = "Register">
+        <input type="submit" name="submit" value="Register">
     </form>
 {% endblock %}

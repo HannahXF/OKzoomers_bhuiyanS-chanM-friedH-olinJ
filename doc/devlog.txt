@@ -51,5 +51,9 @@ Edited the _connects decorator to generalize connection to the database and exce
 hannahF -- 2019-11-21 23:13
 Updated the README but will need to revisit tomorrow morning
 
-jacobO 2019-11-21 23:59
+jacobO -- 2019-11-21 23:59
 Updated the README to include the NBA Player API.
+
+saadB -- 2019-11-22 01:53
+Fleshed out login and register methods in the Flask app. 
+Need to work with database manager to ensure proper interaction.

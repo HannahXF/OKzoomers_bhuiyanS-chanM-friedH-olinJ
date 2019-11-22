@@ -1,6 +1,5 @@
 <!--
-    Team OKzoomers
-    Saad Bhuiyan, Matthew Chan, Hannah Fried (PM), Jacob Olin
+    Team OKzoomers -- Saad Bhuiyan, Matthew Chan, Hannah Fried (PM), Jacob Olin
     SoftDev1 pd2
     P01 -- ArRESTed Development
     2019-11-18
@@ -15,13 +14,15 @@
 {% endblock %}
 
 {% block content %}
-    <form action = "/register/authenticate", method = "POST">
-        Username:
-        <input type="text" name="username"> <br>
-        Password:
-        <input type="text" name="password"> <br>
-        Repeat Password:
-        <input type="text" name="repeat password"> <br>
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endwith %}
+    <form action = "/register">
+        Username: <input type="text" name="username"> <br>
+        Password: <input type="text" name="password1"> <br>
+        Repeat Password: <input type="text" name="password2"> <br>
         <input type="submit" name="submit" value="Register"> <br>
     </form>
     <br>
