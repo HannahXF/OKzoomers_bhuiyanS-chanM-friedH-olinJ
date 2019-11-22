@@ -37,20 +37,13 @@ def login():
         return redirect(url_for("home"))
     # if users attempts login
     if len(request.args) == 2:
-        # if either username or password is blank, flash error
-        if request.args["username"] == "" or request.args["password"] == "":
-            flash("Please do not leave any fields blank.")
-        # else verify login via database function
+        # if inputted login info is correct, adds user to session and redirects to home
+        if db.auth_user(request.args["username"], request.args["password"]):
+            session["username"] = request.args["username"]
+            return redirect(url_for("home"))
+        # else flashes error message and redirects back to login
         else:
-            response = db.verify_login(request.args["username"],
-                                       request.args["password"])
-            # if username and password are verified, session is added and user is sent to home
-            if response == "verified":
-                session["username"] = request.args["username"]
-                return redirect(url_for("home"))
-            # else flash the response from database function
-            else:
-                flash(response)
+            flash("Incorrect username or password, please check spelling and captilization.")
     # render login template
     return render_template("login.html")
 
@@ -65,21 +58,17 @@ def register():
          # if any one of the three fields are blank, flash error
         if request.args["username"] == "" or request.args["password1"] == "" or request.args["password2"] == "":
             flash("Please do not leave any fields blank.")
+        # else if the passwords don't match, flash error
+        elif request.args["password1"] != request.args["password2"]:
+            flash("Passwords don't match.")
+        # else if adding the user (to the database) is successful, username must be unique
+        elif db.add_user(request.args["username"], request.args["password1"]):
+            # if the username is unique, session is added and user is redirected to home
+            session["username"] = request.args["username"]
+            return redirect(url_for("home"))
+        # else flash error
         else:
-            # else if the passwords don't match, flash error
-            if request.args["password1"] != request.args["password2"]:
-                flash("Passwords don't match.")
-            else:
-            # else if the passwords match, attempt to add to database
-                response = db.add_login(request.args["username"],
-                                                request.args["password1"])
-                # if the username is unique, session is added and user is sent to home
-                if response == "valid":
-                    session["username"] = request.args["username"]
-                    return redirect(url_for("home"))
-                # else flash response
-                else:
-                    flash(response)
+            flash("Username not unique.")
     # render register template
     return render_template('register.html')
 
