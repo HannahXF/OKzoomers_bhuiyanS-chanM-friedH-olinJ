@@ -73,3 +73,18 @@ def auth_user(username, password, db=None):
         print(error)
         return False
 
+# Adds login info for a new user
+# Checks if username is unique
+# Returns True if successful, otherwise False
+@_connects
+def add_user(username, password, db=None):
+    #=======================================================
+    # NOTE: Further testing required for this
+    db.execute('''
+                INSERT INTO users(username, password) 
+                VALUES(?, ?);
+               ''',
+               (username, password))
+    #=======================================================
+    db.commit()
+    return True
