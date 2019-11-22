@@ -64,3 +64,10 @@ Work on add_user(...) database function
 
 matthewC -- 2019-11-22 08:47
 Worked on facilitating backend and database function usage
+
+matthewC -- 2019-11-22 09:53
+Created cache(...) database function to store API data accessed in the cache table
+Created helper functions in app.py to access the BallDontLie API data with a specific player ID
+ - player_info(...)
+ - player_stats(...)
+Note: naming of these functions may change
