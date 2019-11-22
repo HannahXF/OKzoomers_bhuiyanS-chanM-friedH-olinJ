@@ -61,3 +61,6 @@ Need to work with database manager to ensure proper interaction.
 matthewC -- 2019-11-22 02:30
 Better commenting on functions
 Work on add_user(...) database function
+
+matthewC -- 2019-11-22 08:47
+Worked on facilitating backend and database function usage
