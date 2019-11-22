@@ -41,6 +41,6 @@ Each new quiz generates a new request from the quiz API - then for each new card
 - Clone the project from [here](https://github.com/IanHF/OKzoomers_bhuiyanS-chanM-friedH-olinJ)
 - Before running, generate a key by first accessing the documentation page (inside of the above link) to ballsdontlie.
 - (OpenTrivia and NBA PLayers require no key)
-- Within the OKzoomers_bhuiyanS-chanM-friedH-olinJ directory, run in your terminal "pip install -r doc/requirements.txt"
+- Within the OKzoomers_bhuiyanS-chanM-friedH-olinJ directory, run in your terminal "pip install -r doc/requirements.txt --user"
 - Run App.py to run the project.
 - Play games! WIn cards! Have fun!
