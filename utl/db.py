@@ -52,8 +52,9 @@ def init(db=None):
     db.execute('''
                 CREATE TABLE IF NOT EXISTS cache(
                     player_id INTEGER UNIQUE PRIMARY KEY, 
-                    data TEXT, 
-                    picture_link TEXT
+                    info TEXT, 
+                    stats TEXT, 
+                    image TEXT
                );''')
     db.commit()
 
@@ -86,5 +87,15 @@ def add_user(username, password, db=None):
                ''',
                (username, password))
     #=======================================================
+    db.commit()
+    return True
+
+@_connects
+def cache(player_id, json_info, json_stats, player_img, db=None):
+    db.execute('''
+                INSERT INTO cache 
+                VALUES(?, ?, ?, ?);
+               ''',
+               (player_id, json_info, json_stats, player_img))
     db.commit()
     return True
