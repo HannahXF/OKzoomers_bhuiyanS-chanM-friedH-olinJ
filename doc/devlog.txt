@@ -47,3 +47,7 @@ Added @_connects for database functions to generalize connection to the database
 matthewC -- 2019-11-21 21:34
 Worked on database function auth_user(...)
 Edited the _connects decorator to generalize connection to the database and except SQLite errors
+
+matthewC -- 2019-11-22 02:30
+Better commenting on functions
+Work on add_user(...) database function
