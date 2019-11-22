@@ -57,15 +57,19 @@ def init(db=None):
                );''')
     db.commit()
 
+# Authenticates login info of a user
+# Returns True if correct, False if not (or error)
 @_connects
 def auth_user(username, password, db=None):
     try:
         userData = db.execute('''
-                                SELECT password 
-                                FROM users 
-                                WHERE username=?
-                               ''', username)
+                               SELECT password 
+                               FROM users 
+                               WHERE username=?;
+                              ''', 
+                              (username))
         return [i for i in userData][0] == password
     except IndexError as error:
         print(error)
         return False
+
