@@ -19,11 +19,12 @@ def _test():
 
 def _connects(db_func):
     def establish_connection(*args, **kwargs):
+        db = sqlite3.connect(_DB_FILE)
         try:
-            db = sqlite3.connect(_DB_FILE)
             return db_func(db = db, *args, **kwargs)
         except sqlite3.Error as error:
             print(error)
+            return False
     return establish_connection
 
 #===========================================================
@@ -55,3 +56,16 @@ def init(db=None):
                     picture_link TEXT
                );''')
     db.commit()
+
+@_connects
+def auth_user(username, password, db=None):
+    try:
+        userData = db.execute('''
+                                SELECT password 
+                                FROM users 
+                                WHERE username=?
+                               ''', username)
+        return [i for i in userData][0] == password
+    except IndexError as error:
+        print(error)
+        return False
