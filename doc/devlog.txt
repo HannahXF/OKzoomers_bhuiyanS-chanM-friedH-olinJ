@@ -43,3 +43,7 @@ Routes added:
 
 matthewC -- 2019-11-21 10:00
 Added @_connects for database functions to generalize connection to the database without having to pass cursor in backend usage
+
+matthewC -- 2019-11-21 21:34
+Worked on database function auth_user(...)
+Edited the _connects decorator to generalize connection to the database and except SQLite errors
