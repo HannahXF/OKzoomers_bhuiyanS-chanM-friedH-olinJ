@@ -37,9 +37,10 @@ THis website should be able to offer users the ability to create accounts and th
 Each new quiz generates a new request from the quiz API - then for each new card, the image API and Basketball API provide information to be rendered in a card division within bootstrap.
 
 **LAUNCH CODES**
-[This section will be updated in the near future to be more explicit]
-Clone the project from [here](https://github.com/IanHF/OKzoomers_bhuiyanS-chanM-friedH-olinJ)
-Before running, generate a key by first accessing the documentation page linked above to ballsdontlie.
-OpenTrivia requires no key.
-Run App.py to run the project.
-Play games! WIn cards! Have fun!
+
+- Clone the project from [here](https://github.com/IanHF/OKzoomers_bhuiyanS-chanM-friedH-olinJ)
+- Before running, generate a key by first accessing the documentation page (inside of the above link) to ballsdontlie.
+- (OpenTrivia and NBA PLayers require no key)
+- Within the OKzoomers_bhuiyanS-chanM-friedH-olinJ directory, run in your terminal "pip install requirements.txt"
+- Run App.py to run the project.
+- Play games! WIn cards! Have fun!
