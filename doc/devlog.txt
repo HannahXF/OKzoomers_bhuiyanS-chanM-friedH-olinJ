@@ -50,3 +50,6 @@ Edited the _connects decorator to generalize connection to the database and exce
 
 hannahF -- 2019-11-21 23:13
 Updated the README but will need to revisit tomorrow morning
+
+jacobO 2019-11-21 23:59
+Updated the README to include the NBA Player API.
