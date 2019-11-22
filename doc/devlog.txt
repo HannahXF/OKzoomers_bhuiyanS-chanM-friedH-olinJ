@@ -48,6 +48,16 @@ matthewC -- 2019-11-21 21:34
 Worked on database function auth_user(...)
 Edited the _connects decorator to generalize connection to the database and except SQLite errors
 
+hannahF -- 2019-11-21 23:13
+Updated the README but will need to revisit tomorrow morning
+
+jacobO -- 2019-11-21 23:59
+Updated the README to include the NBA Player API.
+
+saadB -- 2019-11-22 01:53
+Fleshed out login and register methods in the Flask app. 
+Need to work with database manager to ensure proper interaction.
+
 matthewC -- 2019-11-22 02:30
 Better commenting on functions
 Work on add_user(...) database function

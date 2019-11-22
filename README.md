@@ -30,8 +30,16 @@ Sportsball cards is a platform for:
 
 **Nitty-Gritty**
 
-Data retrieved from: [OpenTrivia API](https://opentdb.com/api_config.php), [balldontlie API](https://docs.google.com/document/d/1zaKf7H-yUcP3lcyAzFsDjLqgZVdpKYNGoZqIcsZoFV0/edit), and the [Image results API](https://serpapi.com/images-results ).
+Data retrieved from: [OpenTrivia API](https://docs.google.com/document/d/18dMPylFMGCljqjTa-GZnk-ZDE68HLR9Rvz8rShwlp-4/), [balldontlie API](https://docs.google.com/document/d/1zaKf7H-yUcP3lcyAzFsDjLqgZVdpKYNGoZqIcsZoFV0/edit), and the [NBA Player API](https://docs.google.com/document/d/18BfMVVlyTPref1yHHpnwolscon-3mLV2MCagVRoAWU8/).
 
 THis website should be able to offer users the ability to create accounts and then play trivia games for basketball. The games are run through the trivia API providing things like verification for correct/incorrect answers. The user should be able to win virtual trading cards based on their trivia success, for which the images on the cards come from our images API and the stats come from the basketball API.
 
 Each new quiz generates a new request from the quiz API - then for each new card, the image API and Basketball API provide information to be rendered in a card division within bootstrap.
+
+**LAUNCH CODES**
+[This section will be updated in the near future to be more explicit]
+Clone the project from [here](https://github.com/IanHF/OKzoomers_bhuiyanS-chanM-friedH-olinJ)
+Before running, generate a key by first accessing the documentation page linked above to ballsdontlie.
+OpenTrivia requires no key.
+Run App.py to run the project.
+Play games! WIn cards! Have fun!
