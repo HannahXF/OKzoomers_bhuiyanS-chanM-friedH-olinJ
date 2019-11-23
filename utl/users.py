@@ -3,7 +3,9 @@
 # P01 -- ArRESTed Development
 # 2019-11-19
 
+#=========================================================
 # DATABASE FUNCTIONS FOR INTERACTION WITH *users* TABLE
+#=========================================================
 
 # importing the sqlite3 module to interface with sqlite databases
 import sqlite3

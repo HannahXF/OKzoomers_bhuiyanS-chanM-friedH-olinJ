@@ -3,6 +3,10 @@
 # P01 -- ArRESTed Development
 # 2019-11-19
 
+#============================================================
+# DATABASE FUNCTIONS FOR GENERAL INTERACTION WITH DATABASE
+#============================================================
+
 # importing the sqlite3 module to interface with sqlite databases
 import sqlite3
 
@@ -11,6 +15,9 @@ _DB_FILE = 'sportsball.db'
 #===========================================================
 # HELPER FUNCTIONS (private)
 
+# Connects to the database file
+# Passes the connected object to the wrapped function
+# Returns the wrapped function if no SQLite error, otherwise False
 def _connects(db_func):
     def establish_connection(*args, **kwargs):
         db = sqlite3.connect(_DB_FILE)
@@ -23,6 +30,7 @@ def _connects(db_func):
 
 #===========================================================
 
+# Creates necessary tables in the database
 @_connects
 def init(db=None):
     # initializing the users table
