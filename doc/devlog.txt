@@ -80,3 +80,6 @@ Updated design document to include most recent changes to database layout:
 matthewC -- 2019-11-22 23:15
 Created @protected decorator to check if user is logged in and eliminate redundant code
 Added /cards route to test multiple @protected functions
+
+matthewC -- 2019-11-22 23:53
+Fixed errors in login and register features (should now work as intended)
