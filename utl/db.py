@@ -52,8 +52,8 @@ def init(db=None):
     db.execute('''
                 CREATE TABLE IF NOT EXISTS cache(
                     player_id INTEGER UNIQUE PRIMARY KEY, 
-                    info TEXT, 
-                    stats TEXT, 
+                    json_info TEXT, 
+                    json_stats TEXT, 
                     image TEXT
                );''')
     db.commit()
@@ -80,7 +80,7 @@ def auth_user(username, password, db=None):
 @_connects
 def add_user(username, password, db=None):
     #=======================================================
-    # NOTE: Further testing required for this
+    # TODO: Further testing required for this
     db.execute('''
                 INSERT INTO users(username, password) 
                 VALUES(?, ?);
@@ -91,11 +91,39 @@ def add_user(username, password, db=None):
     return True
 
 @_connects
-def cache(player_id, json_info, json_stats, player_img, db=None):
+def cache(player_id, json_info, json_stats, image, db=None):
     db.execute('''
                 INSERT INTO cache 
                 VALUES(?, ?, ?, ?);
                ''',
-               (player_id, json_info, json_stats, player_img))
+               (player_id, json_info, json_stats, image))
     db.commit()
     return True
+
+@_connects
+def get_info(player_id, db=None):
+    try:
+        player_info = db.execute('''
+                                  SELECT json_info 
+                                  FROM cache 
+                                  WHERE player_id=?;
+                                 ''', 
+                                 (player_id))
+        return [i for i in player_info][0]
+    except IndexError as error:
+        print(error)
+        return None
+
+@_connects
+def get_stats(player_id, db=None):
+    try:
+        player_stats = db.execute('''
+                                  SELECT json_stats 
+                                  FROM cache 
+                                  WHERE player_id=?;
+                                 ''', 
+                                 (player_id))
+        return [i for i in player_stats][0]
+    except IndexError as error:
+        print(error)
+        return None
