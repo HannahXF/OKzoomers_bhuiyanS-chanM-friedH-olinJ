@@ -6,7 +6,7 @@
 # importing the sqlite3 module to interface with sqlite databases
 import sqlite3
 
-_DB_FILE = '../sportsball.db'
+_DB_FILE = 'sportsball.db'
 
 #===========================================================
 # HELPER FUNCTIONS (private)
@@ -21,7 +21,7 @@ def _connects(db_func):
     def establish_connection(*args, **kwargs):
         db = sqlite3.connect(_DB_FILE)
         try:
-            return db_func(db = db, *args, **kwargs)
+            return db_func(*args, **kwargs, db = db)
         except sqlite3.Error as error:
             print(error)
             return False
@@ -68,8 +68,8 @@ def auth_user(username, password, db=None):
                                FROM users 
                                WHERE username=?;
                               ''', 
-                              (username))
-        return [i for i in userData][0] == password
+                              (username,))
+        return password == [i for i in userData][0][0]
     except IndexError as error:
         print(error)
         return False

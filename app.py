@@ -53,7 +53,7 @@ def login():
     if "username" in session:
         return redirect(url_for("home"))
     # if users attempts login
-    if len(request.args) == 2:
+    if len(request.args) >= 2:
         # if inputted login info is correct, adds user to session and redirects to home
         if db.auth_user(request.args["username"], request.args["password"]):
             session["username"] = request.args["username"]
@@ -71,8 +71,8 @@ def register():
     if "username" in session:
         return redirect(url_for("home"))
     # if user attempts registration
-    if len(request.args) == 3:
-         # if any one of the three fields are blank, flash error
+    if len(request.args) >= 3:
+        # if any one of the three fields are blank, flash error
         if request.args["username"] == "" or request.args["password1"] == "" or request.args["password2"] == "":
             flash("Please do not leave any fields blank.")
         # else if the passwords don't match, flash error
