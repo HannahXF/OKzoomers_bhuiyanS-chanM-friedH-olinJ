@@ -11,7 +11,7 @@ from flask import redirect
 from flask import url_for
 from flask import session
 from flask import flash
-from utl import db
+from utl import db, users, cache
 from urllib.request import urlopen
 import json
 
@@ -55,7 +55,7 @@ def login():
     # if users attempts login
     if len(request.args) >= 2:
         # if inputted login info is correct, adds user to session and redirects to home
-        if db.auth_user(request.args["username"], request.args["password"]):
+        if users.auth(request.args["username"], request.args["password"]):
             session["username"] = request.args["username"]
             return redirect(url_for("home"))
         # else flashes error message and redirects back to login
@@ -79,7 +79,7 @@ def register():
         elif request.args["password1"] != request.args["password2"]:
             flash("Passwords don't match.")
         # else if adding the user (to the database) is successful, username must be unique
-        elif db.add_user(request.args["username"], request.args["password1"]):
+        elif users.add(request.args["username"], request.args["password1"]):
             # if the username is unique, session is added and user is redirected to home
             session["username"] = request.args["username"]
             return redirect(url_for("home"))
@@ -113,7 +113,7 @@ def player_info(player_id):
         # returns the JSON dictionary as a string
         return url.read()
     else:
-        return db.get_info(player_id)
+        return cache.get_info(player_id)
 
 # Gets stats of a given player with their ID
 # Only accesses API if the player data is not already cached
@@ -125,7 +125,7 @@ def player_stats(player_id):
         # returns the JSON dictionary as a string
         return url.read()
     else:
-        return db.get_stats(player_id)
+        return cache.get_stats(player_id)
 
 #============================================================================
 

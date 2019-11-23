@@ -11,12 +11,6 @@ _DB_FILE = 'sportsball.db'
 #===========================================================
 # HELPER FUNCTIONS (private)
 
-def _test():
-    try:
-        db = sqlite3.connect(_DB_FILE)
-    except sqlite3.Error as error:
-        print(error)
-
 def _connects(db_func):
     def establish_connection(*args, **kwargs):
         db = sqlite3.connect(_DB_FILE)
@@ -57,73 +51,3 @@ def init(db=None):
                     image TEXT
                );''')
     db.commit()
-
-# Authenticates login info of a user
-# Returns True if correct, False if not (or error)
-@_connects
-def auth_user(username, password, db=None):
-    try:
-        userData = db.execute('''
-                               SELECT password 
-                               FROM users 
-                               WHERE username=?;
-                              ''', 
-                              (username,))
-        return password == [i for i in userData][0][0]
-    except IndexError as error:
-        print(error)
-        return False
-
-# Adds login info for a new user
-# Checks if username is unique
-# Returns True if successful, otherwise False
-@_connects
-def add_user(username, password, db=None):
-    #=======================================================
-    # TODO: Further testing required for this
-    db.execute('''
-                INSERT INTO users(username, password) 
-                VALUES(?, ?);
-               ''',
-               (username, password))
-    #=======================================================
-    db.commit()
-    return True
-
-@_connects
-def cache(player_id, json_info, json_stats, image, db=None):
-    db.execute('''
-                INSERT INTO cache 
-                VALUES(?, ?, ?, ?);
-               ''',
-               (player_id, json_info, json_stats, image))
-    db.commit()
-    return True
-
-@_connects
-def get_info(player_id, db=None):
-    try:
-        player_info = db.execute('''
-                                  SELECT json_info 
-                                  FROM cache 
-                                  WHERE player_id=?;
-                                 ''', 
-                                 (player_id))
-        return [i for i in player_info][0]
-    except IndexError as error:
-        print(error)
-        return None
-
-@_connects
-def get_stats(player_id, db=None):
-    try:
-        player_stats = db.execute('''
-                                  SELECT json_stats 
-                                  FROM cache 
-                                  WHERE player_id=?;
-                                 ''', 
-                                 (player_id))
-        return [i for i in player_stats][0]
-    except IndexError as error:
-        print(error)
-        return None
