@@ -88,3 +88,6 @@ matthewC -- 2019-11-23 01:09
 Split db.py into db.py, users.py, and cache.py (cards.py not yet implemented) in order to make database function usage cleaner
 Ex: users.add(...) instead of db.add_user(...)
 Fixed corresponding function calls in app.py
+
+matthewC -- 2019-11-23 01:18
+Updated comments on database functions to be clearer and concise
