@@ -3,7 +3,6 @@
 # P01 -- ArRESTed Development
 # 2019-11-21
 
-
 import os
 from flask import Flask
 from flask import render_template
@@ -22,6 +21,22 @@ app = Flask(__name__)
 # set up sessions with random secret key
 app.secret_key = os.urandom(32)
 
+
+db.init()
+
+#=====DECORATOR=FUNCTIONS===================================================
+# Decorator functions to eliminate redundancy:
+
+# Login checking 
+def protected(route_function):
+    def login_check(*args, **kwargs):
+        if 'username' not in session:
+            return redirect(url_for("login"))
+        return route_function(*args, **kwargs)
+    login_check.__name__ = route_function.__name__
+    return login_check
+
+#============================================================================
 
 @app.route("/")
 def root():
@@ -76,12 +91,17 @@ def register():
 
 
 @app.route("/home")
+@protected
 def home():
     return "Hello World!"
 
+@app.route("/cards")
+@protected
+def cards():
+    return "WIP - Cards"
 
 #=====HELPER=FUNCTIONS=======================================================
-# functions to facilitate API usage:
+# Functions to facilitate API usage:
 
 # Gets info of a given player with their ID
 # Only accesses API if the player data is not already cached
@@ -89,7 +109,7 @@ def home():
 def player_info(player_id):
     # if the player id is not already cached, access the API and return the data recieved as a string
     if not in_cache(player_id):
-        url = urlopen("https://www.balldontlie.io/api/v1/players/" + player_id)
+        url = urlopen('https://www.balldontlie.io/api/v1/players/' + player_id)
         # returns the JSON dictionary as a string
         return url.read()
     else:
@@ -101,7 +121,7 @@ def player_info(player_id):
 def player_stats(player_id):
     # if the player id is not already cached, access the API and return the data recieved as a string
     if not in_cache(player_id):
-        url = urlopen("https://www.balldontlie.io/api/v1/season_averages?season=2017&player_ids[]=" + player_id)
+        url = urlopen('https://www.balldontlie.io/api/v1/season_averages?season=2017&player_ids[]=' + player_id)
         # returns the JSON dictionary as a string
         return url.read()
     else:
