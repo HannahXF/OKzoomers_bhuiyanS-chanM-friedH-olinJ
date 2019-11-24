@@ -95,6 +95,17 @@ def register():
     return render_template('register.html')
 
 
+# logout will pop username from the session and redirect to login
+@app.route("/logout")
+@protected
+def logout():
+    # if user is logged in
+    if "username" in session:
+        # pop "username" from session
+        session.pop("username")
+    # redirect user back to login page
+    return redirect(url_for("login"))
+
 # information about the project - what? how? etc.
 @app.route("/home")
 @protected
