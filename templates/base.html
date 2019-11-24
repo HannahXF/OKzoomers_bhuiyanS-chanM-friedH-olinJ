@@ -21,6 +21,13 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         
+        <style>
+            body {	
+				padding: 40px;
+				padding-top: 80px;
+			}
+        </style>
+
         {% block header %}
             <title>
                 WHATGOESHERE - {% block title %}Title{% endblock %}
@@ -30,13 +37,27 @@
     </head>
     <body>
 
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center fixed-top" style="margin-bottom:50px;">
+			<a class="navbar-brand" href="#">OKZoomers</a>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+                	<a class="nav-link" href="home">Home</a>
+              	</li>
+            	<li class="nav-item">
+                	<a class="nav-link" href="inventory">Inventory</a>
+              	</li>
+				<li class="nav-item">
+                	<a class="nav-link" href="trivia">Trivia</a>
+              	</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout">Logout</a>
+                </li>
+            </ul>  
+        </nav>
+
         {% block content %}
             Content
         {% endblock %}
-
-        <footer>
-            Footer
-        </footer>
 
     </body>
 </html>

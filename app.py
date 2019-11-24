@@ -24,6 +24,7 @@ app.secret_key = os.urandom(32)
 
 db.init()
 
+
 #=====DECORATOR=FUNCTIONS===================================================
 # Decorator functions to eliminate redundancy:
 
@@ -38,6 +39,8 @@ def protected(route_function):
 
 #============================================================================
 
+
+# root redirects to login if the user isn't logged in, and home if they are
 @app.route("/")
 def root():
     # if user is logged in, redirect to home
@@ -47,6 +50,7 @@ def root():
     return redirect(url_for("login"))
 
 
+# login page and authentication of login
 @app.route("/login")
 def login():
     # if user is logged in, redirect to home
@@ -65,6 +69,7 @@ def login():
     return render_template("login.html")
 
 
+# register page and validation
 @app.route("/register")
 def register():
     # if user is logged in, redirect to home
@@ -75,8 +80,8 @@ def register():
         # if any one of the three fields are blank, flash error
         if request.args["username"] == "" or request.args["password1"] == "" or request.args["password2"] == "":
             flash("Please do not leave any fields blank.")
-        # else if the passwords don't match, flash error
-        elif request.args["password1"] != request.args["password2"]:
+        # if the passwords don't match, flash error
+        if request.args["password1"] != request.args["password2"]:
             flash("Passwords don't match.")
         # else if adding the user (to the database) is successful, username must be unique
         elif users.add(request.args["username"], request.args["password1"]):
@@ -90,15 +95,33 @@ def register():
     return render_template('register.html')
 
 
+# information about the project - what? how? etc.
 @app.route("/home")
 @protected
 def home():
-    return "Hello World!"
+    return render_template("home.html")
 
-@app.route("/cards")
+
+# logged in user's inventory of cards
+@app.route("/inventory")
 @protected
-def cards():
-    return "WIP - Cards"
+def inventory():
+    return render_template("inventory.html")
+
+
+# trivia page 
+@app.route("/trivia")
+@protected
+def trivia():
+    return render_template("trivia.html")
+
+
+# rewards page 
+@app.route("/rewards")
+@protected
+def rewards():
+    return render_template("rewards.html")
+
 
 #=====HELPER=FUNCTIONS=======================================================
 # Functions to facilitate API usage:
@@ -126,6 +149,7 @@ def player_stats(player_id):
         return url.read()
     else:
         return cache.get_stats(player_id)
+
 
 #============================================================================
 

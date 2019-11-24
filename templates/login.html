@@ -13,20 +13,33 @@
     Login
 {% endblock %}
 
-{% block content %}
-    {% with messages = get_flashed_messages() %}
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    {% endwith %}
-    <form action="/login">
-        Username: <input type="text" name="username"> <br>
-        Password: <input type="text" name="password"> <br>
-        <input type="submit" name="submit" value="Login"> <br>
-    </form>
+{% block content %} 
     <br>
-    Don't have an account? Click here to register.
-    <form action = "/register", method = "GET">
-        <input type="submit" name="submit" value="Register">
+    <h3> Hey there! Looks like you're not logged in... Log in to get back to playing. </h3>
+    <br>
+    <div class="jumbotron">
+        <form action="/login">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" name="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="text" class="form-control" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form> 
+        <br>
+        <br>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                {{ message }} <br><br>
+            {% endfor %}
+        {% endwith %}
+    </div>
+    <br>
+    <form action = "/register">
+        <label for="submit"><h5>Don't have an account? Click here to register.</h5></label>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 {% endblock %}

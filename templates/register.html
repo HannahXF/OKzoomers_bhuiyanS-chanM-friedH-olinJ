@@ -14,19 +14,36 @@
 {% endblock %}
 
 {% block content %}
-    {% with messages = get_flashed_messages() %}
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-    {% endwith %}
-    <form action = "/register">
-        Username: <input type="text" name="username"> <br>
-        Password: <input type="text" name="password1"> <br>
-        Repeat Password: <input type="text" name="password2"> <br>
-        <input type="submit" name="submit" value="Register"> <br>
-    </form>
     <br>
-    <form action="/login", method = "GET">
-        <input type="submit" name="submit" value="Cancel" >
+    <h3>Don't have an account with us? Make one now to start playing!</h3>
+    <br>
+     <div class="jumbotron">
+        <form action="/register">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" name="username">
+            </div>
+            <div class="form-group">
+                <label for="password1">Password:</label>
+                <input type="text" class="form-control" name="password1">
+            </div>
+            <div class="form-group">
+                <label for="password2">Password Again:</label>
+                <input type="text" class="form-control" name="password2">
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form> 
+        <br>
+        <br>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                {{ message }} <br><br>
+            {% endfor %}
+        {% endwith %}
+    </div>
+    <br>
+    <form action="/login">
+        <label for="submit"><h5>Didn't mean that? Go back to the login page.</h5></label>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
 {% endblock %}
