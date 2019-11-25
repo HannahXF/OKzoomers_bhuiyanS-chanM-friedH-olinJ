@@ -15,7 +15,11 @@ from .db import _connects
 # Optimizes API quota usage
 # Returns True if successful, otherwise False
 @_connects
-def cache(player_id, json_info, json_stats, image, db=None):
+def cache(player_id, image, db=None):
+    json_info = api.info(player_id)
+    json_stats = api.stats(player_id)
+    image = api.image(player_id, json_info)
+
     db.execute('''
                 INSERT INTO cache 
                 VALUES(?, ?, ?, ?);
@@ -36,7 +40,7 @@ def get_info(player_id, db=None):
                                   WHERE player_id=?;
                                  ''', 
                                  (player_id,))
-        return [i for i in player_info][0]
+        return [i for i in player_info][0][0]
     except IndexError as error:
         print(error)
         return None
@@ -53,7 +57,7 @@ def get_stats(player_id, db=None):
                                   WHERE player_id=?;
                                  ''', 
                                  (player_id,))
-        return [i for i in player_stats][0]
+        return [i for i in player_stats][0][0]
     except IndexError as error:
         print(error)
         return None
