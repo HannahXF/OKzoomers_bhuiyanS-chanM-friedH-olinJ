@@ -76,6 +76,14 @@ matthewC -- 2019-11-22 11:34
 Updated design document to include most recent changes to database layout:
  - Changed cache table to have json_info and json_stats
  - Altered some naming of columns
+ 
+saadB -- 2019-11-22 20:43
+Added routes for all features to be implemented.
+Added Bootstrap to login and register.
+
+saadB -- 2019-11-22 20:43
+Added a navbar which allows the user to navigate through the website.
+Implemented a logout button in the navbar which functions properly.
 
 matthewC -- 2019-11-22 23:15
 Created @protected decorator to check if user is logged in and eliminate redundant code
@@ -92,7 +100,21 @@ Fixed corresponding function calls in app.py
 matthewC -- 2019-11-23 01:18
 Updated comments on database functions to be clearer and concise
 
+saadB -- 2019-11-23 13:23
+Fixed registration error where user could create an account without matching passwords in registration form.
+
 matthewC -- 2019-11-25 10:09
 Created api.py to handle interaction with APIs
 Altered cache(...) to take only player_id and handle API usage
 Created generate(...) to create new cards (not currently working)
+
+saadB -- 2019-11-25 13:20
+Created working functions to get necessary information from trivia api to website.
+
+saadB -- 2019-11-25 18:23
+Changed secret key to a string for easy debugging (prevents having to login everytime the Flask app restarts).
+Added Bootstrap to the trivia page to create a multiple choice test form.
+Issues to be resolved:
+ - Ordering of answer choices so the correct one isn't always first.
+ - HTML &; tags showing as text in questions from API.
+Need to work on reward system and cards.
