@@ -28,7 +28,7 @@ db.init()
 #=====DECORATOR=FUNCTIONS===================================================
 # Decorator functions to eliminate redundancy:
 
-# Login checking 
+# Login checking
 def protected(route_function):
     def login_check(*args, **kwargs):
         if 'username' not in session:
@@ -36,6 +36,15 @@ def protected(route_function):
         return route_function(*args, **kwargs)
     login_check.__name__ = route_function.__name__
     return login_check
+
+def getQuestion(difficulty):
+    u = urlopen(
+    "https://opentdb.com/api.php?amount=1&category=21&type=multiple&difficulty=" + difficulty
+    )
+
+    response = u.read()
+    data = json.loads(response)
+    return [data[0][question],data[0][correct_answer],data[0][incorrect_answer][0],data[0][incorrect_answer][1],data[0][incorrect_answer][2]]
 
 #============================================================================
 
@@ -120,14 +129,14 @@ def inventory():
     return render_template("inventory.html")
 
 
-# trivia page 
+# trivia page
 @app.route("/trivia")
 @protected
 def trivia():
     return render_template("trivia.html")
 
 
-# rewards page 
+# rewards page
 @app.route("/rewards")
 @protected
 def rewards():
