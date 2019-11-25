@@ -91,3 +91,8 @@ Fixed corresponding function calls in app.py
 
 matthewC -- 2019-11-23 01:18
 Updated comments on database functions to be clearer and concise
+
+matthewC -- 2019-11-25 10:09
+Created api.py to handle interaction with APIs
+Altered cache(...) to take only player_id and handle API usage
+Created generate(...) to create new cards (not currently working)
