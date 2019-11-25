@@ -14,5 +14,41 @@
 {% endblock %}
 
 {% block content %}
-    Trivia questions.
+    <br>
+    <div class="jumbotron text-center" style="background-color:#3895D3;">
+        <h3 class="display-3"> How well do you know your sports? </h3>
+        <h5 class="display-5"> Correctly answer 7 or more questions to receive a reward.</h5>
+    </div>
+    <h5 style="color:red;"><b>Only check one box per question!</b></h5>
+    <br>   
+    <form action="/rewards" method="POST">
+        <ol>
+            {% for question in questionSets %}
+                <li>{{question[0]}}</li>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="correct">{{question[1]}}
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="incorrect">{{question[2]}}
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="incorrect">{{question[3]}}
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="incorrect">{{question[4]}}
+                    </label>
+                </div>
+                <br>
+                <br>
+            {% endfor %}
+        </ol>
+        <button type="submit" class="btn btn-primary">Check Answers</button>
+    </form>
 {% endblock %}

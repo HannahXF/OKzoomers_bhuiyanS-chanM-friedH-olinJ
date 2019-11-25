@@ -14,5 +14,16 @@
 {% endblock %}
 
 {% block content %}
-    Reward cards.
+    <br>
+    {% if {{numCorrect}} > 6 %}
+        <div class="jumbotron text-center" style="background-color:#3895D3;">
+            <h3 class="display-3">Well done! You answered {{numCorrect}} questions correctly.</h3>
+            <h4 class="display-4">Congratulations you received 3 reward cards!</h4>
+        </div>
+    {% endif %}
+    {% else %}
+        <div class="jumbotron text-center" style="background-color:#3895D3;">
+            <h3 class="display-3">Better luck next time. You only answered {{numCorrect}} questions correctly.</h3>
+        </div>
+    {% endelse %}
 {% endblock %}

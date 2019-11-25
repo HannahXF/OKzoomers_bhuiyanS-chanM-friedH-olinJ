@@ -18,8 +18,10 @@ import json
 
 # create instance of class Flask
 app = Flask(__name__)
+
 # set up sessions with random secret key
-app.secret_key = os.urandom(32)
+# app.secret_key = os.urandom(32)   # for deployment
+app.secret_key = "OKZoomers"        # for debugging
 
 
 db.init()
@@ -133,14 +135,37 @@ def inventory():
 @app.route("/trivia")
 @protected
 def trivia():
-    return render_template("trivia.html")
+    trivia = getTrivia()
+    return render_template("trivia.html",
+                            questionSets=trivia)
+
+
+# returns 10 trivia questions with all relevant information
+def getTrivia():
+    api_call = urlopen("https://opentdb.com/api.php?amount=10&category=21&type=multiple")
+    response = api_call.read()
+    data = json.loads(response)
+    data = data["results"]
+    trivia = []
+    questionNum = 0
+    while questionNum < 10:
+        questionSet = []
+        questionSet.append(data[questionNum]["question"])
+        questionSet.append(data[questionNum]["correct_answer"])
+        questionSet.append(data[questionNum]["incorrect_answers"][0])
+        questionSet.append(data[questionNum]["incorrect_answers"][1])
+        questionSet.append(data[questionNum]["incorrect_answers"][2])
+        trivia.append(questionSet)
+        questionNum += 1
+    return trivia
 
 
 # rewards page
-@app.route("/rewards")
+@app.route("/rewards", methods=["POST"])
 @protected
 def rewards():
-    return render_template("rewards.html")
+    return render_template("rewards.html",
+                            numCorrect=numCorrect)
 
 
 #=====HELPER=FUNCTIONS=======================================================
