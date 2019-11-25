@@ -37,14 +37,6 @@ def protected(route_function):
     login_check.__name__ = route_function.__name__
     return login_check
 
-def getQuestion(difficulty):
-    u = urlopen(
-    "https://opentdb.com/api.php?amount=1&category=21&type=multiple&difficulty=" + difficulty
-    )
-
-    response = u.read()
-    data = json.loads(response)
-    return [data[0][question],data[0][correct_answer],data[0][incorrect_answer][0],data[0][incorrect_answer][1],data[0][incorrect_answer][2]]
 
 #============================================================================
 
@@ -133,6 +125,7 @@ def inventory():
 @app.route("/trivia")
 @protected
 def trivia():
+    list = getQuestion("medium")
     return render_template("trivia.html")
 
 
@@ -170,6 +163,34 @@ def player_stats(player_id):
     else:
         return cache.get_stats(player_id)
 
+def getQuestion(difficulty):
+    u = urlopen(
+    "https://opentdb.com/api.php?amount=1&category=21&type=multiple&difficulty=" + difficulty
+    )
+
+    response = u.read()
+    data = json.loads(response)
+    return [data[0]["question"],data[0]["correct_answer"],data[0]["incorrect_answer"][0],data[0]["incorrect_answer"][1],data[0]["incorrect_answer"][2]]
+
+def getPPG(playerid):
+    u = urlopen(
+    "https://www.balldontlie.io/api/v1/season_averages?season=2017&player_ids[]=" + playerid
+    )
+
+    response = u.read()
+    data = json.loads(response)
+    return data[0]["pts"]
+
+def getImage(playedid):
+    u = urlopen(
+    "https://www.balldontlie.io/api/v1/season_averages?season=2017&player_ids[]=" + playerid"
+    )
+
+    response = u.read()
+    data = json.loads(response)
+    firstname = data[0]["first_name"]
+    lastname = data[0]["last_name"]
+    return "https://nba-players.herokuapp.com/players/" + lastname + "/" + firstname
 
 #============================================================================
 
