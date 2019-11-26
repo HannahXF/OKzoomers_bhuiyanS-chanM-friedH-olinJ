@@ -6,7 +6,7 @@ Jacob - Backend
 Matthew - DB
 Saad - Frontend
 
-friedH -- 2019-11-19 08:51
+hannahF -- 2019-11-19 08:51
 added tentative final update for design doc and devlog setup
 
 
@@ -55,7 +55,7 @@ jacobO -- 2019-11-21 23:59
 Updated the README to include the NBA Player API.
 
 saadB -- 2019-11-22 01:53
-Fleshed out login and register methods in the Flask app. 
+Fleshed out login and register methods in the Flask app.
 Need to work with database manager to ensure proper interaction.
 
 matthewC -- 2019-11-22 02:30
@@ -76,7 +76,7 @@ matthewC -- 2019-11-22 11:34
 Updated design document to include most recent changes to database layout:
  - Changed cache table to have json_info and json_stats
  - Altered some naming of columns
- 
+
 saadB -- 2019-11-22 20:43
 Added routes for all features to be implemented.
 Added Bootstrap to login and register.
@@ -118,3 +118,17 @@ Issues to be resolved:
  - Ordering of answer choices so the correct one isn't always first.
  - HTML &; tags showing as text in questions from API.
 Need to work on reward system and cards.
+
+hannahF -- 2019-11-26 07:05
+HOME STRETCH PLAN
+-Complete every database interaction function by Saturday (Matthew)
+-Within a day from now, use what is available from Matthew to build as robust of a backend as possible. It need not do everything, but it must be substantial.(Jacob)
+-Across the week until Sunday, consistently test and cross-check each other's work until sure beyond reasonable doubt that functionality exists - even if not completely (Jacob and Matthew)
+-Complete properly rendered trivia in bootstrap by Friday morning (Saad)
+-Create Properly rendered cards within bootstrap by Saturday morning, as part of the reward system (Saad)
+-Completely finish ALL Bootstrap related activities by Monday afternoon. (Saad)
+-From Monday till Wednesday, test everything as rigorously as possible and patch as needed (Everyone)
+-Until Wednesday, help as best as possible with any requested assistance from other team members (Hannah)
+-Ensure every new deliverable is pushed and functioning beyond reasonable doubt by Thursday(Hannah)
+-Create proper team flag, project name, etc....Aesthetic stuff which isn't high priority but should be done by Saturday(Hannah)
+HOPEFUL DEADLINE: NEXT WEDNESDAY 12/4/2019
