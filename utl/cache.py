@@ -9,9 +9,11 @@
 
 # importing the sqlite3 module to interface with sqlite databases
 import sqlite3
-from db import _connects
+from .db import _connects
 import json
-import api
+from .api import info as APIinfo
+from .api import stats as APIstats
+from .api import image as APIimage
 
 # Checks if the info for a player is in the cache
 # Returns true if in the cache, otherwise False
@@ -32,9 +34,9 @@ def contains(player_id, db=None):
 def cache(player_id, image, db=None):
     if contains(player_id):
         return False
-    json_info = api.info(player_id)
-    json_stats = api.stats(player_id)
-    image = api.image(player_id, json_info)
+    json_info = APIinfo(player_id)
+    json_stats = APIstats(player_id)
+    image = APIimage(player_id, json_info)
 
     db.execute('''
                 INSERT INTO cache 
