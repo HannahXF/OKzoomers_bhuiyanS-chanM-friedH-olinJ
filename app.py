@@ -4,6 +4,7 @@
 # 2019-11-21
 
 import os
+import random
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -156,6 +157,7 @@ def getTrivia():
 @app.route("/rewards", methods=["POST"])
 @protected
 def rewards():
+    rarities = createSpread(session["correct"])
     return render_template("rewards.html",
                             numCorrect=numCorrect)
 
@@ -186,6 +188,17 @@ def player_stats(player_id):
         return url.read()
     else:
         return cache.get_stats(player_id)
+
+def createSpread(num):
+    list = [1,1,1,1,1]
+    i = 0
+    while i < num:
+        j = random.randint(0,4)
+        if list[j] <= 5:
+            list[j] +=1
+            i += 1
+    return list
+
 
 
 #============================================================================
