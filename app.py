@@ -127,7 +127,7 @@ def inventory():
 @app.route("/trivia")
 @protected
 def trivia():
-    trivia = getTrivia()
+    trivia = getTrivia() # list of 10 sets of questions and answer choices 
     return render_template("trivia.html",
                             questionSets=trivia)
 
