@@ -133,3 +133,21 @@ HOME STRETCH PLAN
 -Create proper team flag, project name, etc....Aesthetic stuff which isn't high priority but should be done by Saturday(Hannah)
 HOPEFUL DEADLINE: NEXT WEDNESDAY 12/4/2019
 SHARING CARDS BETWEEN USERS WILL BE CUT IF NEEDED, ASSUMING NOT ENOUGH TIME REMAINS TO PROPERLY IMPLEMENT
+
+matthewC -- 2019-11-26 9:00
+Made api.py functions use python string formatting
+Simplified naming of functions within cache.py
+Worked on functions in cache.py:
+ - Created contains()
+ - Optimized cache()
+ - Created image()
+ - Created helper functions _name(), _team(), _points()
+Worked on functions in cards.py:
+ - Fixed generate()
+ - Created info() --> returns info necessary for displaying cards
+
+hannahF -- 2019-11-26 09:09
+added flag and test account
+
+matthewC -- 2019-11-26 09:20
+Cleaned functions in app.py and moved helper functions

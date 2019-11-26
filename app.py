@@ -40,7 +40,6 @@ def protected(route_function):
     login_check.__name__ = route_function.__name__
     return login_check
 
-
 #============================================================================
 
 
@@ -128,10 +127,24 @@ def inventory():
 @app.route("/trivia")
 @protected
 def trivia():
-    trivia = getTrivia()
+    trivia = getTrivia() # list of 10 sets of questions and answer choices
     return render_template("trivia.html",
                             questionSets=trivia)
 
+
+
+
+
+# rewards page
+@app.route("/rewards", methods=["POST"])
+@protected
+def rewards():
+    return render_template("rewards.html",
+                            numCorrect=numCorrect)
+
+
+#=====HELPER=FUNCTIONS=======================================================
+# Functions to facilitate API usage:
 
 # returns 10 trivia questions with all relevant information
 def getTrivia():
@@ -164,30 +177,6 @@ def rewards():
 
 #=====HELPER=FUNCTIONS=======================================================
 # Functions to facilitate API usage:
-
-# Gets info of a given player with their ID
-# Only accesses API if the player data is not already cached
-# Returns a string of the entire JSON dictionary
-def player_info(player_id):
-    # if the player id is not already cached, access the API and return the data recieved as a string
-    if not in_cache(player_id):
-        url = urlopen('https://www.balldontlie.io/api/v1/players/' + player_id)
-        # returns the JSON dictionary as a string
-        return url.read()
-    else:
-        return cache.get_info(player_id)
-
-# Gets stats of a given player with their ID
-# Only accesses API if the player data is not already cached
-# Returns a string of the entire JSON dictionary
-def player_stats(player_id):
-    # if the player id is not already cached, access the API and return the data recieved as a string
-    if not in_cache(player_id):
-        url = urlopen('https://www.balldontlie.io/api/v1/season_averages?season=2017&player_ids[]=' + player_id)
-        # returns the JSON dictionary as a string
-        return url.read()
-    else:
-        return cache.get_stats(player_id)
 
 def createSpread(num):
     list = [1,1,1,1,1]
