@@ -132,3 +132,4 @@ HOME STRETCH PLAN
 -Ensure every new deliverable is pushed and functioning beyond reasonable doubt by Thursday(Hannah)
 -Create proper team flag, project name, etc....Aesthetic stuff which isn't high priority but should be done by Saturday(Hannah)
 HOPEFUL DEADLINE: NEXT WEDNESDAY 12/4/2019
+SHARING CARDS BETWEEN USERS WILL BE CUT IF NEEDED, ASSUMING NOT ENOUGH TIME REMAINS TO PROPERLY IMPLEMENT
