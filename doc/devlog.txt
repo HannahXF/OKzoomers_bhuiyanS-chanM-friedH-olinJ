@@ -145,3 +145,6 @@ Worked on functions in cache.py:
 Worked on functions in cards.py:
  - Fixed generate()
  - Created info() --> returns info necessary for displaying cards
+
+hannahF -- 2019-11-26 09:09
+added flag and test account
