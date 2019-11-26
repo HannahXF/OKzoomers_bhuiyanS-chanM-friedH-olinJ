@@ -13,12 +13,12 @@ import json
 # Gets the player info from the BallDontLie API
 # Returns the string of the JSON dictionary
 def info(player_id):
-    return urlopen('https://www.balldontlie.io/api/v1/players/' + player_id).read()
+    return urlopen(f'https://www.balldontlie.io/api/v1/players/{player_id}').read()
 
 # Gets the player stats from the BallDontLie API
 # Returns the string of the JSON dictionary
 def stats(player_id):
-    return urlopen('https://www.balldontlie.io/api/v1/season_averages?season=2017&player_ids[]=' + player_id).read()
+    return urlopen(f'https://www.balldontlie.io/api/v1/season_averages?season=2017&player_ids[]={player_id}').read()
 
 # Gets the player image from the NBA Player API
 # Returns the image link
@@ -27,5 +27,5 @@ def image(player_id, info):
     first_name = info['first_name'].replace(' ', '_')
     last_name = info['last_name'].replace(' ', '_')
     # TODO: test getting the image
-    return urlopen('https://nba-players.herokuapp.com/players' + last_name + '/' + first_name).read()
-    
+    return urlopen(f'https://nba-players.herokuapp.com/players{last_name}/{first_name}').read()
+
