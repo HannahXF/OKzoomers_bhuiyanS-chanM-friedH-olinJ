@@ -109,6 +109,7 @@ def logout():
     # redirect user back to login page
     return redirect(url_for("login"))
 
+
 # information about the project - what? how? etc.
 @app.route("/home")
 @protected
@@ -132,13 +133,19 @@ def trivia():
                             questionSets=trivia)
 
 
-
+# rewards page
+@app.route("/rewards", methods=["POST"])
+@protected
+def rewards():
+    return render_template("rewards.html",
+                            numCorrect=numCorrect)
 
 
 # rewards page
 @app.route("/rewards", methods=["POST"])
 @protected
 def rewards():
+    rarities = createSpread(session["correct"])
     return render_template("rewards.html",
                             numCorrect=numCorrect)
 
@@ -165,19 +172,6 @@ def getTrivia():
         questionNum += 1
     return trivia
 
-
-# rewards page
-@app.route("/rewards", methods=["POST"])
-@protected
-def rewards():
-    rarities = createSpread(session["correct"])
-    return render_template("rewards.html",
-                            numCorrect=numCorrect)
-
-
-#=====HELPER=FUNCTIONS=======================================================
-# Functions to facilitate API usage:
-
 def createSpread(num):
     list = [1,1,1,1,1]
     i = 0
@@ -187,8 +181,6 @@ def createSpread(num):
             list[j] +=1
             i += 1
     return list
-
-
 
 #============================================================================
 
