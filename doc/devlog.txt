@@ -151,3 +151,7 @@ added flag and test account
 
 matthewC -- 2019-11-26 09:20
 Cleaned functions in app.py and moved helper functions
+
+matthewC -- 2019-11-26 23:59
+Fixed merging errors
+Changed python module structure to fix importing between files
