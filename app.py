@@ -177,6 +177,24 @@ def getTrivia():
         questionNum += 1
     return trivia
 
+def getPhoto(idnum):
+    api_call = urlopen("https://www.balldontlie.io/api/v1/players/" + idnum)
+    response = api_call.read()
+    data = json.loads(response)
+    firstName = correct(data["first_name"])
+    lastName = correct(data["last_name"])
+
+    imgsrc = "https://nba-players.herokuapp.com/players/" + lastName + "/" + first_name
+    return imgsrc
+
+def correct(name):
+    while "." in name:
+        rem = name.index('.')
+        name = name[0:rem] + name[rem+1:len(name)]
+    while " " in name:
+        rem = name.index(' ')
+        name = name[0:rem] + "_"
+
 def createSpread(num):
     list = [1,1,1,1,1]
     i = 0
