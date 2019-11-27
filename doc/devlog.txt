@@ -155,3 +155,7 @@ Cleaned functions in app.py and moved helper functions
 matthewC -- 2019-11-26 23:59
 Fixed merging errors
 Changed python module structure to fix importing between files
+
+matthewC -- 2019-11-27 04:00
+Worked on trying to fix bugs in functions
+Currently, bugs still exist in inventory and card generation
