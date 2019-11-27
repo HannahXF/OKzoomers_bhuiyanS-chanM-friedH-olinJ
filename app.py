@@ -12,7 +12,7 @@ from flask import redirect
 from flask import url_for
 from flask import session
 from flask import flash
-from utl import db, users, cache
+from utl import db, users, cards
 from urllib.request import urlopen
 import json
 
@@ -121,6 +121,11 @@ def home():
 @app.route("/inventory")
 @protected
 def inventory():
+    user_id = users.identify(session["username"])
+    cards = cards.owned(user_id)
+    print(cards)
+    for cardTuple in cards:
+        print(cards.info(cardTuple[0]))
     return render_template("inventory.html")
 
 

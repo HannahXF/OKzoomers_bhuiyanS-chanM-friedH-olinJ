@@ -39,3 +39,19 @@ def add(username, password, db=None):
                (username, password))
     db.commit()
     return True
+
+# Authenticates login info of a user
+# Returns True if correct, False if not (or error)
+@_connects
+def identify(username, db=None):
+    try:
+        userData = db.execute('''
+                               SELECT user_id 
+                               FROM users 
+                               WHERE username=?;
+                              ''', 
+                              (username,))
+        return [i for i in userData][0][0]
+    except IndexError as error:
+        print(error)
+        return None
