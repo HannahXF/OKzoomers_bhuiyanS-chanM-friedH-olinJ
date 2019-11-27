@@ -39,7 +39,7 @@ def generate(user_id, player_ids, num_cards, db=None):
     newCards = list()
     for i in range(num_cards):
         player = random.choice(player_ids)
-        cache.cache(player)
+        cache_cache(player)
         rarity = random.randint(1,3)
 
         db.execute('''
@@ -53,10 +53,10 @@ def generate(user_id, player_ids, num_cards, db=None):
     db.commit()
     return newCards
 
-@_connects
+
 def info(player_id):
     return list(
-                cache._name(player_id), 
-                cache._team(player_id), 
-                cache._points(player_id)
+                cache_name(player_id), 
+                cache_team(player_id), 
+                cache_points(player_id)
                )

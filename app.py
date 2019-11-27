@@ -122,9 +122,9 @@ def home():
 @protected
 def inventory():
     user_id = users.identify(session["username"])
-    cards = cards.owned(user_id)
-    print(cards)
-    for cardTuple in cards:
+    user_cards = cards.owned(user_id)
+    print(user_cards)
+    for cardTuple in user_cards:
         print(cards.info(cardTuple[0]))
     return render_template("inventory.html")
 
@@ -144,6 +144,15 @@ def trivia():
 def rewards():
     return render_template("rewards.html",
                             numCorrect=numCorrect)
+
+
+# test page to give cards
+@app.route("/test")
+@protected
+def test():
+    newCards = cards.generate(users.identify(session["username"]), range(1, 3258), 10)
+    print(newCards)
+    return "Done?"
 
 
 #=====HELPER=FUNCTIONS=======================================================

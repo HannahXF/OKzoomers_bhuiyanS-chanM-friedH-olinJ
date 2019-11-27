@@ -23,13 +23,13 @@ def contains(player_id, db=None):
                          WHERE player_id=?;
                         ''', 
                         (player_id,))
-    return len(player) != 0
+    return len([i for i in player]) != 0
 
 # Stores JSON data recieved from BallDontLie API and NBA Player API
 # Optimizes API quota usage
 # Returns True if successful, otherwise False
 @_connects
-def cache(player_id, image, db=None):
+def cache(player_id, db=None):
     if contains(player_id):
         return False
     json_info = api.info(player_id)
@@ -84,19 +84,23 @@ def image(player_id, db=None):
                               (player_id,))
     return [i for i in player_image][0][0]
 
-
+# Accesses the BallDontLie API to determine a list of all existing player IDs
+# Returns a list of existing player IDs
+# Not necessarily needed, but would be helpful if players drop out mid season
+# def existing_players():
+#     json.loads(urlopen('https://www.balldontlie.io/api/v1/players/').read())
 
 # Gets the name of a player given their ID
-def _name(player_id, db=None):
-    info = json.loads(info(player_id))
-    return info['first_name'] + ' ' + info['last_name']
+def _name(player_id):
+    data = json.loads(info(player_id))
+    return data['first_name'] + ' ' + data['last_name']
 
 # Gets the team name of a player given their ID
-def _team(player_id, db=None):
-    info = json.loads(info(player_id))
-    return info['team']['full_name']
+def _team(player_id):
+    data = json.loads(info(player_id))
+    return data['team']['full_name']
 
 # Gets the average points per game in the season of a player given their ID
-def _points(player_id, db=None):
-    stats = json.loads(stats(player_id))
-    return stats['pts']
+def _points(player_id):
+    data = json.loads(stats(player_id))
+    return data['pts']
