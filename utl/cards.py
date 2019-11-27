@@ -10,7 +10,10 @@
 # importing the sqlite3 module to interface with sqlite databases
 import sqlite3
 from .db import _connects
-import cache
+from .cache import cache as cache_cache
+from .cache import _name as cache_name
+from .cache import _team as cache_team
+from .cache import _points as cache_points
 import random
 
 # Gets a list of the cards owned by a certain user based on ID

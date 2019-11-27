@@ -11,7 +11,7 @@
 import sqlite3
 from .db import _connects
 import json
-from api import api
+from .api import api
 
 # Checks if the info for a player is in the cache
 # Returns true if in the cache, otherwise False

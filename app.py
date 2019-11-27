@@ -146,15 +146,6 @@ def rewards():
                             numCorrect=numCorrect)
 
 
-# rewards page
-@app.route("/rewards", methods=["POST"])
-@protected
-def rewards():
-    rarities = createSpread(session["correct"])
-    return render_template("rewards.html",
-                            numCorrect=numCorrect)
-
-
 #=====HELPER=FUNCTIONS=======================================================
 # Functions to facilitate API usage:
 
