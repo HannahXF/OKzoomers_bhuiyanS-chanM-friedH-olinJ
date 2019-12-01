@@ -159,3 +159,8 @@ Changed python module structure to fix importing between files
 matthewC -- 2019-11-27 04:00
 Worked on trying to fix bugs in functions
 Currently, bugs still exist in inventory and card generation
+
+matthewC -- 2019-12-01 12:26
+Modified design document to account for changes in database layout:
+ - Changed cache table to no longer store full JSON packets
+ - Now stores first_name, last_name, team, avg_pts
