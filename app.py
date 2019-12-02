@@ -147,6 +147,7 @@ def trivia():
 @app.route("/rewards", methods=["POST"])
 @protected
 def rewards():
+    numCorrect = 6
     return render_template("rewards.html",
                             numCorrect=numCorrect)
 
