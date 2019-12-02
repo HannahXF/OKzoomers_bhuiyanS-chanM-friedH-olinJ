@@ -23,12 +23,12 @@
         <ol>
             {% for question in questionSets %}
                 <li>{{question[0]|safe}}</li>
-                <select class="custom-select">
+                <select name="choices" class="custom-select">
                     <option selected>Pick an answer choice.</option>
-                    <option value="1">{{question[1]|safe}}</option>
-                    <option value="2">{{question[2]|safe}}</option>
-                    <option value="3">{{question[3]|safe}}</option>
-                    <option value="4">{{question[4]|safe}}</option>
+                    <option value="correct">{{question[1]|safe}}</option>
+                    <option value="incorrect">{{question[2]|safe}}</option>
+                    <option value="incorrect">{{question[3]|safe}}</option>
+                    <option value="incorrect">{{question[4]|safe}}</option>
                 </select>
                 <br>
                 <br>

@@ -147,8 +147,25 @@ def trivia():
 @app.route("/rewards", methods=["POST"])
 @protected
 def rewards():
+    numCorrect = 0
+    # user's answer choices from trivia
+    choices = request.form.getlist("choices")
+    # for each question 
+    for question in range(10):
+        # if the answer choice is correct
+        if choices[question] == "correct":
+            # add one to the total number correct
+            numCorrect += 1
+    # generates 3 reward cards
+    rewards = cards.generate(users.identify(session["username"]), range(115, 116), 3)
+    playerCards = list()
+    # creates appropriate player cards for the rewards
+    for card in rewards:
+        player_id = card[0]
+        playerCards.append(players.data(player_id))
     return render_template("rewards.html",
-                            numCorrect=numCorrect)
+                            numCorrect=numCorrect,
+                            rewardCards=playerCards)
 
 
 # test page to give cards

@@ -15,15 +15,30 @@
 
 {% block content %}
     <br>
-    {% if {{numCorrect}} > 6 %}
+    {% if numCorrect > 6 %}
         <div class="jumbotron text-center" style="background-color:#3895D3;">
             <h3 class="display-3">Well done! You answered {{numCorrect}} questions correctly.</h3>
             <h4 class="display-4">Congratulations you received 3 reward cards!</h4>
         </div>
-    {% endif %}
+        <div class="row pb-3">
+            {% for card in rewardCards %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src={{card['image']}} class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">{{card['first_name']}} {{card['last_name']}}</h3>
+                            <p class="card-text">
+                                Team: {{card['team']}} <br>
+                                Average Points: {{card['avg_pts']}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     {% else %}
         <div class="jumbotron text-center" style="background-color:#3895D3;">
             <h3 class="display-3">Better luck next time. You only answered {{numCorrect}} questions correctly.</h3>
         </div>
-    {% endelse %}
-{% endblock %}
+    {% endif %}
+{% endblock %}  
