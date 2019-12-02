@@ -195,3 +195,6 @@ Worked on inventory.html to display player cards properly
 In progress:
  - color rarity showing
  - card spacing issues
+ 
+jacobO -- 2019-12-02 9:18
+Got the rewards page to render correctly
