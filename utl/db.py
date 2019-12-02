@@ -54,8 +54,10 @@ def init(db=None):
     db.execute('''
                 CREATE TABLE IF NOT EXISTS cache(
                     player_id INTEGER UNIQUE PRIMARY KEY, 
-                    json_info TEXT, 
-                    json_stats TEXT, 
+                    first_name TEXT, 
+                    last_name TEXT, 
+                    team TEXT, 
+                    avg_pts INTEGER, 
                     image TEXT
                );''')
     db.commit()

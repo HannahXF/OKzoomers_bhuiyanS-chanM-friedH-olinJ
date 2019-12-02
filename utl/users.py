@@ -40,8 +40,8 @@ def add(username, password, db=None):
     db.commit()
     return True
 
-# Authenticates login info of a user
-# Returns True if correct, False if not (or error)
+# Finds the user_id of a user given a username
+# Returns the user_id
 @_connects
 def identify(username, db=None):
     try:

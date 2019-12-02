@@ -10,10 +10,7 @@
 # importing the sqlite3 module to interface with sqlite databases
 import sqlite3
 from .db import _connects
-from .cache import cache as cache_cache
-from .cache import _name as cache_name
-from .cache import _team as cache_team
-from .cache import _points as cache_points
+from .players import cache
 import random
 
 # Gets a list of the cards owned by a certain user based on ID
@@ -39,7 +36,7 @@ def generate(user_id, player_ids, num_cards, db=None):
     newCards = list()
     for i in range(num_cards):
         player = random.choice(player_ids)
-        cache_cache(player)
+        cache(player)
         rarity = random.randint(1,3)
 
         db.execute('''
@@ -52,11 +49,3 @@ def generate(user_id, player_ids, num_cards, db=None):
         newCards.append(cardTuple)
     db.commit()
     return newCards
-
-
-def info(player_id):
-    return list(
-                cache_name(player_id), 
-                cache_team(player_id), 
-                cache_points(player_id)
-               )
