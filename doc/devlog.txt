@@ -186,3 +186,12 @@ Files in utl changed accordingly to match decisions made in design doc and neces
      - changed generate() according to changed import
  - db.py
      - changed init() to create correct table layouts
+
+matthewC -- 2019-12-02 01:13
+Caught bugs in api.py, players.py
+Edited the title in base.html
+Worked on app.py to correctly generate and format data to pass to /inventory route
+Worked on inventory.html to display player cards properly
+In progress:
+ - color rarity showing
+ - card spacing issues
