@@ -25,10 +25,28 @@
                 <li>{{question[0]|safe}}</li>
                 <select name="choices" class="custom-select">
                     <option selected>Pick an answer choice.</option>
-                    <option value="correct">{{question[1]|safe}}</option>
-                    <option value="incorrect">{{question[2]|safe}}</option>
-                    <option value="incorrect">{{question[3]|safe}}</option>
-                    <option value="incorrect">{{question[4]|safe}}</option>
+                    {% set correctChoice = range(1,5)|random %}
+                    {% if correctChoice == 1 %}
+                        <option value="correct">{{question[1]|safe}}</option>
+                        <option value="incorrect">{{question[2]|safe}}</option>
+                        <option value="incorrect">{{question[3]|safe}}</option>
+                        <option value="incorrect">{{question[4]|safe}}</option>
+                    {% elif correctChoice == 2 %}
+                        <option value="incorrect">{{question[2]|safe}}</option>
+                        <option value="correct">{{question[1]|safe}}</option>
+                        <option value="incorrect">{{question[3]|safe}}</option>
+                        <option value="incorrect">{{question[4]|safe}}</option>
+                    {% elif correctChoice == 3 %}
+                        <option value="incorrect">{{question[2]|safe}}</option>
+                        <option value="incorrect">{{question[3]|safe}}</option>
+                        <option value="correct">{{question[1]|safe}}</option>
+                        <option value="incorrect">{{question[4]|safe}}</option>
+                    {% else %}
+                        <option value="incorrect">{{question[2]|safe}}</option>
+                        <option value="incorrect">{{question[3]|safe}}</option>
+                        <option value="incorrect">{{question[4]|safe}}</option>
+                        <option value="correct">{{question[1]|safe}}</option>
+                    {% endif %}
                 </select>
                 <br>
                 <br>

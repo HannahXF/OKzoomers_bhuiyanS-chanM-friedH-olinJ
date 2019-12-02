@@ -195,7 +195,9 @@ Worked on inventory.html to display player cards properly
 In progress:
  - color rarity showing
  - card spacing issues
-<<<<<<< HEAD
+
+jacobO -- 2019-12-02 9:18
+Got the rewards page to render correctly
 
 saadB -- 2019-12-02 09:50
 Made trivia form interact properly with rewards function.
@@ -203,8 +205,6 @@ Created a system to keep track of correct answer choices and reward the player a
 Updated the form to use POST method.
 Updated rewards page to properly display number of correct answers.
 Added player cards generated for the user.
-=======
- 
-jacobO -- 2019-12-02 9:18
-Got the rewards page to render correctly
->>>>>>> f0f107d623de45a041db0bc9aa276723b38d2254
+
+saadB -- 2019-12-02 10:14
+Trivia answer choices now appear in random order instead of correct answer always showing up first.
