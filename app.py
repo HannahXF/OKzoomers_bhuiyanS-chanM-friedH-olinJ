@@ -21,8 +21,8 @@ import json
 app = Flask(__name__)
 
 # set up sessions with random secret key
-# app.secret_key = os.urandom(32)   # for deployment
-app.secret_key = "OKZoomers"        # for debugging
+app.secret_key = os.urandom(32)     # for deployment
+# app.secret_key = "OKZoomers"      # for debugging
 
 
 db.init()

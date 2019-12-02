@@ -208,3 +208,6 @@ Added player cards generated for the user.
 
 saadB -- 2019-12-02 10:14
 Trivia answer choices now appear in random order instead of correct answer always showing up first.
+
+saadB -- 2019-12-02 18:32 
+Masked passwords in login and register and changes session key to random to prepare for deployment.
