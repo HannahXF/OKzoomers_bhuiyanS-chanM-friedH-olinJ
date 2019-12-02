@@ -14,5 +14,25 @@
 {% endblock %}
 
 {% block content %}
-    The person's cards.
+<div class="container-fluid">
+    <div class="jumbotron text-center">
+        <h1>Your Cards:</h1>
+    </div>
+    <div class="row pb-3">
+        {% for card in inventory %}
+        <div class="col-md-4">
+            <div class="card">
+                <img src={{card['image']}} class="card-img-top">
+                <div class="card-body">
+                    <h3 class="card-title">{{card['first_name']}} {{card['last_name']}}</h3>
+                    <p class="card-text">
+                        Team: {{card['team']}} <br>
+                        Average Points: {{card['avg_pts']}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

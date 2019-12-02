@@ -12,7 +12,7 @@ from flask import redirect
 from flask import url_for
 from flask import session
 from flask import flash
-from utl import db, users, cards
+from utl import db, users, cards, players
 from urllib.request import urlopen
 import json
 
@@ -123,10 +123,15 @@ def home():
 def inventory():
     user_id = users.identify(session["username"])
     user_cards = cards.owned(user_id)
+    print("User's Inventory: ")
     print(user_cards)
-    for cardTuple in user_cards:
-        print(cards.info(cardTuple[0]))
-    return render_template("inventory.html")
+    cards_data = list()
+    for card in user_cards:
+        player_id = card[0]
+        cards_data.append(players.data(player_id))
+        print(players.data(player_id))
+    return render_template("inventory.html",
+                            inventory = cards_data)
 
 
 # trivia page
@@ -150,7 +155,8 @@ def rewards():
 @app.route("/test")
 @protected
 def test():
-    newCards = cards.generate(users.identify(session["username"]), range(1, 3258), 10)
+    newCards = cards.generate(users.identify(session["username"]), range(115, 116), 4)
+    print("Generated Test Cards: ")
     print(newCards)
     return "Done?"
 

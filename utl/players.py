@@ -31,7 +31,7 @@ def _cached(player_id, db=None):
 def cache(player_id, db=None):
     if _cached(player_id):
         return False
-    data = cache_data(player_id)
+    data = api.cache_data(player_id)
     db.execute('''
                 INSERT INTO cache 
                 VALUES(?, ?, ?, ?, ?, ?);
@@ -58,6 +58,8 @@ def data(player_id, db=None):
                               WHERE player_id=?;
                              ''', 
                              (player_id,))
+    player_data = [i for i in player_data][0]
+    
     data = dict()
     data['player_id']  = player_data[0]
     data['first_name'] = player_data[1]
