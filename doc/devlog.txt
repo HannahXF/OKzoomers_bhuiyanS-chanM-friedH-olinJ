@@ -164,3 +164,26 @@ matthewC -- 2019-12-01 12:26
 Modified design document to account for changes in database layout:
  - Changed cache table to no longer store full JSON packets
  - Now stores first_name, last_name, team, avg_pts
+
+matthewC -- 2019-12-01 02:00
+Files in utl changed accordingly to match decisions made in design doc and necessary usage in backend
+ - users.py
+     - created identify() to find the user_id given a username for use in backend session storing
+     - better commenting
+ - api.py
+     - made API interaction private functions
+     - tested format of image link needed
+     - changed image() to return the actual request instead of using urlopen() and .read()
+     - created cache_data() to get the data from APIs necessary to cache a certain player_id
+     - cache_data() returns in the format of a dictionary
+ - players.py (renamed from cache.py)
+     - renamed contains() to _cached() and made it private
+     - changed cache() according to changes in design doc and in api.py to use cache_data()
+     - removed all other functions becuase changes made them uneccessary and non-functional
+     - created data() to return a dictionary of all player data held in the cache table
+ - cards.py
+     - removed info()
+     - changed generate() according to changed import
+ - db.py
+     - changed init() to create correct table layouts
+ - 
