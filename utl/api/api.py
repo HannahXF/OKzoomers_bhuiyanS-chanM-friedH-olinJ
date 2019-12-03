@@ -25,6 +25,8 @@ def _stats(player_id):
 def _image(player_id, info):
     first_name = info['first_name'].replace(' ', '_')
     last_name = info['last_name'].replace(' ', '_')
+    first_name = first_name.replace('.', '')
+    last_name = last_name.replace('.', '')
     return (f'https://nba-players.herokuapp.com/players/{last_name}/{first_name}')
 
 # Organizes the cache data needed

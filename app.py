@@ -129,7 +129,7 @@ def inventory():
     for card in user_cards:
         player_id = card[0]
         cards_data.append(players.data(player_id))
-        print(players.data(player_id))
+        #print(players.data(player_id))
     return render_template("inventory.html",
                             inventory = cards_data)
 
@@ -157,7 +157,7 @@ def rewards():
             # add one to the total number correct
             numCorrect += 1
     # generates 3 reward cards
-    rewards = cards.generate(users.identify(session["username"]), range(115, 116), 3)
+    rewards = cards.generate(users.identify(session["username"]), numCorrect)
     playerCards = list()
     # creates appropriate player cards for the rewards
     for card in rewards:
@@ -172,7 +172,7 @@ def rewards():
 @app.route("/test")
 @protected
 def test():
-    newCards = cards.generate(users.identify(session["username"]), range(115, 116), 4)
+    newCards = cards.generate(users.identify(session["username"]), 4)
     print("Generated Test Cards: ")
     print(newCards)
     return "Done?"

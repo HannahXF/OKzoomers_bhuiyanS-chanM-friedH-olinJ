@@ -30,12 +30,14 @@ def owned(user_id, db=None):
         print(error)
         return list()
 
-#return a list of information to be used in card rendering
+# Generates a specified amount of cards owned by a specific given user
+# Will cache players generated and store each card in the cards table
+# Returns the new cards generated
 @_connects
-def generate(user_id, player_ids, num_cards, db=None):
+def generate(user_id, num_cards, db=None):
     newCards = list()
     for i in range(num_cards):
-        player = random.choice(player_ids)
+        player = random.choice(valid_ids())
         cache(player)
         rarity = random.randint(1,3)
 
@@ -49,3 +51,11 @@ def generate(user_id, player_ids, num_cards, db=None):
         newCards.append(cardTuple)
     db.commit()
     return newCards
+
+# Reads the data stored in ids.txt
+# Converts items to integers and returns the list of ids
+def valid_ids():
+    ids = open('utl/api/ids.txt', 'r')
+    ids = ids.readlines()
+    ids = [int(player_id) for player_id in ids]
+    return ids
