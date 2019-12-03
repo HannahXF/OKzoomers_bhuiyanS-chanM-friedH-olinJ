@@ -232,3 +232,6 @@ Weighted rarities of cards
  - Common(Bronze): 60%
 Colored cards accordingly and added textures in /static
 Passed rarity information in app.py to inventory.html
+
+hannahF -- 2019-12-03 16:18
+pip fix hopefully
