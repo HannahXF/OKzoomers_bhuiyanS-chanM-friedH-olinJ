@@ -39,6 +39,8 @@ Each new quiz generates a new request from the quiz API - then for each new card
 **LAUNCH CODES**
 
 - Clone the project from [here](https://github.com/IanHF/OKzoomers_bhuiyanS-chanM-friedH-olinJ). No key generation needed.
-- Within the OKzoomers_bhuiyanS-chanM-friedH-olinJ directory, run in your terminal `pip install -r doc/requirements.txt`
-- Run App.py to run the project.
+- Within the OKzoomers_bhuiyanS-chanM-friedH-olinJ directory, run in your terminal `virtualenv venv`
+- Then `source venv/bin/activate`
+- Then `pip install -r doc/requirements.txt`
+- Then `python app.py` or `python3 app.py` to run the project.
 - Play games! WIn cards! Have fun!
