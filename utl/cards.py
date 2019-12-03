@@ -39,7 +39,10 @@ def generate(user_id, num_cards, db=None):
     for i in range(num_cards):
         player = random.choice(valid_ids())
         cache(player)
-        rarity = random.randint(1,3)
+        rarity = random.choices(
+                                population = (1  ,2  ,3  ),
+                                weights =    (0.6,0.3,0.1)
+                               )
 
         db.execute('''
                     INSERT INTO cards

@@ -128,8 +128,7 @@ def inventory():
     cards_data = list()
     for card in user_cards:
         player_id = card[0]
-        cards_data.append(players.data(player_id))
-        #print(players.data(player_id))
+        cards_data.append(tuple((players.data(player_id), card[1])))
     return render_template("inventory.html",
                             inventory = cards_data)
 
