@@ -224,3 +224,11 @@ Edited calls to generate() in app.py
 Correctly randomizes players of cards now
 In Progress:
  - coloring rarities
+
+matthewC -- 2019-12-03 01:06
+Weighted rarities of cards
+ - Legendary(Gold): 10%
+ - Rare(Silver): 30%
+ - Common(Bronze): 60%
+Colored cards accordingly and added textures in /static
+Passed rarity information in app.py to inventory.html
