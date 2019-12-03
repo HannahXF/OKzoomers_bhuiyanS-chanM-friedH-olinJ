@@ -42,5 +42,5 @@ Each new quiz generates a new request from the quiz API - then for each new card
 - Within the OKzoomers_bhuiyanS-chanM-friedH-olinJ directory, run in your terminal `virtualenv venv`
 - Then `source venv/bin/activate`
 - Then `pip install -r doc/requirements.txt`
-- Then `python app.py` or `python3 app.py` to run the project.
+- Then `python3 app.py` to run the project.
 - Play games! WIn cards! Have fun!
