@@ -150,7 +150,7 @@ def rewards():
     numCorrect = 0
     # user's answer choices from trivia
     choices = request.form.getlist("choices")
-    # for each question 
+    # for each question
     for question in range(10):
         # if the answer choice is correct
         if choices[question] == "correct":
@@ -200,6 +200,7 @@ def getTrivia():
         questionNum += 1
     return trivia
 
+#get photo of a searched player from balldontlie
 def getPhoto(idnum):
     api_call = urlopen("https://www.balldontlie.io/api/v1/players/" + idnum)
     response = api_call.read()
@@ -210,6 +211,7 @@ def getPhoto(idnum):
     imgsrc = "https://nba-players.herokuapp.com/players/" + lastName + "/" + first_name
     return imgsrc
 
+#make sure the names of players are easily manipulated
 def correct(name):
     while "." in name:
         rem = name.index('.')
@@ -218,6 +220,7 @@ def correct(name):
         rem = name.index(' ')
         name = name[0:rem] + "_"
 
+#create rarity spread for rewards
 def createSpread(num):
     list = [1,1,1,1,1]
     i = 0

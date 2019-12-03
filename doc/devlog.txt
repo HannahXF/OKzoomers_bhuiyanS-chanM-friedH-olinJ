@@ -211,3 +211,6 @@ Trivia answer choices now appear in random order instead of correct answer alway
 
 saadB -- 2019-12-02 18:32 
 Masked passwords in login and register and changes session key to random to prepare for deployment.
+
+hannahF -- 2019-12-02 21:34
+Added comments for methods without them, not too much

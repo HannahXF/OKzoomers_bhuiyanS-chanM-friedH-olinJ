@@ -20,17 +20,17 @@ import random
 def owned(user_id, db=None):
     try:
         cards = db.execute('''
-                            SELECT player_id, rarity 
-                            FROM cards 
+                            SELECT player_id, rarity
+                            FROM cards
                             WHERE user_id=?;
-                           ''', 
+                           ''',
                            (user_id,))
         return [i for i in cards]
     except IndexError as error:
         print(error)
         return list()
 
-
+#return a list of information to be used in card rendering
 @_connects
 def generate(user_id, player_ids, num_cards, db=None):
     newCards = list()
