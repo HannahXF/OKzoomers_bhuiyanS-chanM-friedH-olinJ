@@ -155,13 +155,13 @@ def rewards():
         if choices[question] == "correct":
             # add one to the total number correct
             numCorrect += 1
-    # generates 3 reward cards
-    rewards = cards.generate(users.identify(session["username"]), numCorrect)
+    # generates numCorrect amount of reward cards
+    newCards = cards.generate(users.identify(session["username"]), numCorrect)
     playerCards = list()
     # creates appropriate player cards for the rewards
-    for card in rewards:
+    for card in newCards:
         player_id = card[0]
-        playerCards.append(players.data(player_id))
+        playerCards.append(tuple((players.data(player_id), card[1])))
     return render_template("rewards.html",
                             numCorrect=numCorrect,
                             rewardCards=playerCards)
@@ -171,7 +171,7 @@ def rewards():
 @app.route("/test")
 @protected
 def test():
-    newCards = cards.generate(users.identify(session["username"]), 4)
+    newCards = cards.generate(users.identify(session["username"]), 10)
     print("Generated Test Cards: ")
     print(newCards)
     return "Done?"

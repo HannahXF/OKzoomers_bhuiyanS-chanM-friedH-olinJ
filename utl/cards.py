@@ -33,26 +33,30 @@ def owned(user_id, db=None):
 # Generates a specified amount of cards owned by a specific given user
 # Will cache players generated and store each card in the cards table
 # Returns the new cards generated
-@_connects
 def generate(user_id, num_cards, db=None):
     newCards = list()
     for i in range(num_cards):
         player = random.choice(valid_ids())
         cache(player)
-        rarity = random.choices(
-                                population = (1  ,2  ,3  ),
-                                weights =    (0.6,0.3,0.1)
-                               )
+        try:
+            db = sqlite3.connect('sportsball.db')
+            rarity = random.choices(population=(1,2,3), weights=(0.6,0.3,0.1))[0]
+            print("RARITY" + str(rarity))
 
-        db.execute('''
-                    INSERT INTO cards
-                    VALUES(?, ?, ?);
-                   ''',
-                   (player, user_id, rarity))
+            db.execute('''
+                        INSERT INTO cards
+                        VALUES(?, ?, ?);
+                    ''',
+                    (player, user_id, rarity))
 
-        cardTuple = tuple((player, rarity))
-        newCards.append(cardTuple)
-    db.commit()
+            cardTuple = tuple((player, rarity))
+            newCards.append(cardTuple)
+            db.commit()
+            db.close()
+        except sqlite3.Error as error:
+            print(error)
+            return None
+    
     return newCards
 
 # Reads the data stored in ids.txt
