@@ -214,3 +214,13 @@ Masked passwords in login and register and changes session key to random to prep
 
 hannahF -- 2019-12-02 21:34
 Added comments for methods without them, not too much
+
+matthewC -- 2019-12-03 10:06
+Created ids.py script in /api to search the BallDontLie API for player ids of the 2017 season
+Ran ids.py to create ids.txt in /api (DO NOT RUN AGAIN)
+Edited cards.py generate() to take ids.txt as the list of valid ids of players in the 2017 season
+Created valid_ids() in cards.py to help read data from ids.txt
+Edited calls to generate() in app.py
+Correctly randomizes players of cards now
+In Progress:
+ - coloring rarities
