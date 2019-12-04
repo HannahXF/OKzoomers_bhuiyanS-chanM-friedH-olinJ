@@ -235,3 +235,9 @@ Passed rarity information in app.py to inventory.html
 
 hannahF -- 2019-12-03 16:18
 pip fix hopefully
+
+saadB -- 2019-12-03 19:06
+Changed colors for reward page jumbotrons.
+Reward card amount now varies and that is reflected in the text.
+Changed minimum amount of correct answers necessary for reward from 7 to 5.
+Added content to the home page.
