@@ -247,3 +247,6 @@ added test account
 
 saadB -- 2019-12-03 22:01
 Fixed bug where players were still receiving cards in their inventory despite failing trivia.
+
+saadB -- 2019-12-03 22:19
+Made player cards larger in inventory and rewards.
