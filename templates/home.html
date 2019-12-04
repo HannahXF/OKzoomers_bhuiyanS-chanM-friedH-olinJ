@@ -14,23 +14,20 @@
 {% endblock %}
 
 {% block content %}
-  <br>
-  <div class="jumbotron text-center" style="background-color:#3895D3;">
-      <h3 class="display-3"> Information about our app.</h3>
-  </div>
-    On this website, you can collect trading cards of all of your favorite basketball players.
-    <br><br>
-    <h3>Trivia:</h3>
-    To earn new cards first go to the trivia page.
     <br>
-    Once on the trivia page, you will be prompted with 10 multiple choice trivia questions about sports.
-    <br>If you correctly answer seven or more trivia questions correctly,
-    you will be rewarded with three new player cards.
-    <br><br>
-    <h3>Collecting cards:</h3>
-    If you answer enough trivia questions, you will be rewarded with cards.
-    <br>The cards generated will be random.
-    <br>Once you earn cards, you can view all of
-    the cards you've ever earned under the inventory tab.
-
+    <div class="jumbotron text-center" style="background-color:#C20953;">
+        <h3 class="display-3">Welcome to Sportsball Trading Cards!</h3>
+        <h4 class="display-4">Presented by Team OKZoomers</h4>
+    </div>
+    <br>
+    <div class="jumbotron text-center" style="background-color:#F4ABAA;">
+        <h3><a href="{{url_for("trivia")}}" style="color: #000000;">Trivia</a></h3>
+        <h5>To earn new cards you have to play our trivia game. You will be given 10 random trivia questions about a variety of different sports. If you answer at least 5 of those questions correctly, you will receive the same number of reward cards.</h5>
+        <h5>The reward card can be of any basketball player. Cards have the player's picture, their name, their average points per game, as well a rarity assigned to it.</h5>
+        <br>
+        <h3><a href="{{url_for("inventory")}}"  style="color: #000000;">Inventory</a></h3>
+        <h5>Once you win some cards, you're probably going to want to see them. When you win cards on this website, they are automatically added to your inventory. When you open up your inventory all of your cards in all its glory will show up so you can flex on your friends.</h5>
+        <br><br>
+        <h3>That's all you need to know to start playing!</h3>
+    </div>
 {% endblock %}

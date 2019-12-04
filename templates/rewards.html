@@ -15,10 +15,10 @@
 
 {% block content %}
     <br>
-    {% if numCorrect > 6 %}
-        <div class="jumbotron text-center" style="background-color:#3895D3;">
+    {% if numCorrect > 4 %}
+        <div class="jumbotron text-center" style="background-color:#3Eb650;">
             <h3 class="display-3">Well done! You answered {{numCorrect}} questions correctly.</h3>
-            <h4 class="display-4">Congratulations you received 3 reward cards!</h4>
+            <h4 class="display-4">Congratulations you received {{numCorrect}} reward cards!</h4>
         </div>
         <div class="row">
             {% for card in rewardCards %}
@@ -38,7 +38,7 @@
             {% endfor %}
         </div>
     {% else %}
-        <div class="jumbotron text-center" style="background-color:#3895D3;">
+        <div class="jumbotron text-center" style="background-color:#E12B38;">
             <h3 class="display-3">Better luck next time. You only answered {{numCorrect}} questions correctly.</h3>
         </div>
     {% endif %}
