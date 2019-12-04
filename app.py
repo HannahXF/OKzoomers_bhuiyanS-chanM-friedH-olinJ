@@ -155,13 +155,14 @@ def rewards():
         if choices[question] == "correct":
             # add one to the total number correct
             numCorrect += 1
-    # generates numCorrect amount of reward cards
-    newCards = cards.generate(users.identify(session["username"]), numCorrect)
     playerCards = list()
-    # creates appropriate player cards for the rewards
-    for card in newCards:
-        player_id = card[0]
-        playerCards.append(tuple((players.data(player_id), card[1])))
+    if numCorrect > 4:
+        # generates numCorrect amount of reward cards
+        newCards = cards.generate(users.identify(session["username"]), numCorrect)
+        # creates appropriate player cards for the rewards
+        for card in newCards:
+            player_id = card[0]
+            playerCards.append(tuple((players.data(player_id), card[1])))
     return render_template("rewards.html",
                             numCorrect=numCorrect,
                             rewardCards=playerCards)
